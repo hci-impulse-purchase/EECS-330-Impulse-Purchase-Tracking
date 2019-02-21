@@ -1,0 +1,90 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+  overflow: auto;
+}
+
+/* background image*/
+.bgimg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/budget_list2.jpg");
+}
+
+.profile-pic{
+  width:20%;
+}
+
+.header{
+  height: 10%;
+  width: 100%;
+}
+
+.header-text{
+  width:80%;
+  float: right;
+}
+
+.footer{
+  height: 10%;
+  width: 100%;
+  float: right;
+  position: absolute;
+  bottom: 0;
+}
+
+.display{
+  height:80%;
+  width:80%;
+  float: right;
+  padding: 50px;
+}
+
+.side-bar{
+  height:80%;
+  width:20%;
+  position: absolute;
+  bottom: 10%;
+}
+.menu-option{
+  text-shadow:1px 1px 0 #444;
+  font-weight: bold;
+  color: indigo;
+}
+
+.inline-text{
+  display: inline;
+}
+
+.alignright{
+  float:right;
+}
+.alignleft{
+  float:left;
+}
+.aligncenter{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.onhover{
+  cursor:pointer;
+}
+
+.btn-size{
+  font-size: 20px;
+}
+
+#login{
+  width:40%;
+  padding-top: 100px;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+
+}
