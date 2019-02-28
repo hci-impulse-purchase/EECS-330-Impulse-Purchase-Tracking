@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<title>Binge List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/impluse_shopping.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey bgimg">
+
+<header class="w3-container w3-teal header">
+    <h1>
+      <span class="profile-pic alignleft">
+        <span><img src="images/QH2.jpg" class="w3-circle aligncenter onhover"></span>
+      </span>
+
+        <span class = "header-text inline-text">
+        <span class="alignright">
+          <button onclick="location.href = 'dashboard.html';" class="w3-button w3-deep-orange w3-round-xxlarge btn-size">
+              <i class="fa fa-chevron-circle-left"></i> Back to Dashboard
+          </button>
+        </span>
+      </span>
+    </h1>
+</header>
+
+<!-- Page Container -->
+<div class="w3-row-padding aligncenter w3-margin-top" style="max-width:95%;">
+
+    <!-- Left Column -->
+    <div class="w3-quarter">
+
+        <div class="w3-white w3-card-4">
+            <div class="w3-display-container" style="height:670px;">
+                <!-- Functional buttons -->
+                <center>
+                    <br>
+                    <button onclick="location.href = 'budget_list.html';" style="background-color: #84c0ff; width:75%;"
+                            class="w3-margin w3-text-white w3-hover-lime onhover">
+                        <h4>Budget History</h4>
+                    </button>
+                    <button onclick="" style="background-color: #bdb2ff; width:75%;" class="w3-margin w3-text-white w3-hover-lime onhover">
+                        <h4>Purchase Tracker</h4>
+                    </button>
+                    <button onclick="" style="background-color: #8c8cff; width:75%;" class="w3-margin w3-text-white w3-hover-lime onhover">
+                        <h4>Binge List</h4>
+                    </button>
+                    <button onclick="" style="background-color: #7f76ff; width:75%;" class="w3-margin w3-text-white w3-hover-lime onhover">
+                        <h4>Rewards</h4>
+                    </button>
+                    <!-- Sign out -->
+                    <hr>
+                    <button onclick="location.href = 'login.html';" style="width:50%;"
+                            class="w3-grey w3-round-xxlarge w3-text-black w3-hover-blue-grey onhover">
+                        <h4>SIGN OUT</h4>
+                    </button>
+
+                </center>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Left Column -->
+
+    <!-- Right Column -->
+    <div class="w3-threequarter">
+        <!-- Dashboard-->
+        <div class="w3-container w3-card w3-white w3-margin-bottom" style="height:670px;">
+
+            <h1 class="w3-text-light-black w3-padding-16">
+                <i class="w3-margin-right fa fa-list-alt fa-fw w3-xxlarge w3-text-teal"></i>New Budget
+
+                <span class="alignright">
+                  <button onclick="" class="w3-button w3-red w3-round-large btn-size w3-margin-right">
+                      Cancel
+                  </button>
+                </span>
+                &nbsp &nbsp
+                <span class="alignright">
+                  <button onclick="" class="w3-button w3-green w3-round-large btn-size w3-margin-right">
+                      Save
+                  </button>
+                </span>
+            </h1>
+
+            <div class="container">
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="budget_name">Budget name</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="budget_name" name="budget_name" placeholder="Budget name">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-25">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="description" name="description" placeholder="Description">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-25">
+                    <label for="est_date">Estimated Date</label>
+                  </div>
+                  <div class="col-75">
+                    <input type="date" id="est_date" onload="setDate()">
+                  </div>
+                </div>
+                <br>
+                <center>
+                <div class="row" >
+                  <div class="w3-container" id="budget-table" style="display:none;">
+                    <table class="w3-table-all w3-card-4" id="budgettable">
+                      <tr>
+                        <th><i class="fa fa-tag"></i> Item</th>
+                        <th><i class="fa fa-usd"></i> Rate</th>
+                        <th><i class="fa fa-hashtag"></i> Quantity</th>
+                        <th><i class="fa fa-shopping-bag"></i> Total</th>
+                      </tr>
+                      <tr>
+                        <td><input type="text" id="itemname" name="itemname" placeholder="Item name"></td>
+                        <td><input type="text" id="itemrate" name="itemrate" placeholder="Estimated rate"></td>
+                        <td><input type="text" id="qty" name="qty" placeholder="Quantity"></td>
+                        <td><input type="text" id="itemtotal" name="itemtotal" placeholder="Total"></td>
+                      </tr>
+
+                    </table>
+                  </div>
+                  <br>
+                  <input type="submit" value="Add an item" onclick="updatebudgetTable()">
+                </div>
+
+
+
+              </center>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <!-- End Right Column -->
+
+    <!-- End Grid -->
+</div>
+<!-- End Page Container -->
+
+<!-- Footer -->
+
+<footer class="w3-container w3-teal w3-center w3-margin-top footer">
+    <p>Find us on social media.</br>
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i></p>
+</footer>
+
+<script src="impulse_shopping.js">
+</script>
+
+</body>
+</html>
