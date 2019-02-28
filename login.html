@@ -12,18 +12,27 @@
   </header>
 
   <div id="login" class="w3-container w3-center aligncenter">
-    <form class="w3-container w3-card-4" action="/action_page.php">
+    <form class="w3-container w3-card-4" autocomplete="off">
+      <center>
 
+      <p style="width:50%;">
+        <label class="w3-text-blue w3-left"><i class="fa fa-envelope-o w3-hover-opacity"></i><b> Username</b></label>
+        <input class="w3-input w3-border" placeholder="Username" id="name" type="text" value="" required>
+      </p>
+
+      <p style="width:50%;">
+        <label class="w3-text-blue w3-left"><i class="fa fa-key w3-hover-opacity"></i><b> Password</b></label>
+        <input class="w3-input w3-border" placeholder="Password" id="password" type="password" value="" required>
+      </p>
+
+      </center>
       <p>
-      <label class="w3-text-blue"><b>Username</b></label>
-      <input class="w3-input w3-border" name="first" type="text"></p>
-      <p>
-      <label class="w3-text-blue"><b>Password</b></label>
-      <input class="w3-input w3-border" name="last" type="password"></p>
-      <p>
-      <a href="dashboard.html" button class="w3-btn w3-round-xlarge w3-blue" style="width:25%;">Login</a></p>
+        <a href="dashboard.html" button class="w3-btn w3-round-xlarge w3-blue" style="width:25%;" onClick="processForm()">Login</a>
+      </p>
+
       <p><button class="w3-btn w3-red"><i class="fa fa-google w3-hover-opacity"></i> Login with Google</button>
-         <button class="w3-btn w3-indigo"><i class="fa fa-facebook-official w3-hover-opacity"></i> Login with Facebook</button></p>
+         <button class="w3-btn w3-indigo"><i class="fa fa-facebook-official w3-hover-opacity"></i> Login with Facebook</button>
+      </p>
 
       <p>New here?
         <span><a href="">Create an account</a><span>
@@ -43,6 +52,8 @@
     <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i></p>
   </footer>
+
+<script src="impulse_shopping.js"></script>
 
 </body>
 </html>
