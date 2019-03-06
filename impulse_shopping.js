@@ -114,6 +114,10 @@ function budgetHeadersTableOn() {
     document.getElementById("budget-table-headers").style.display = "block";
 }
 
+function budgetTotalOn() {
+    document.getElementById("budget-total").style.display = "block";
+}
+
 function budgetDetailsTableOn() {
     document.getElementById("budget-table-details").style.display = "block";
 }
@@ -122,6 +126,7 @@ function updatebudgetTable(){
   if (document.getElementById("budget-table").style.display == "none"){
     budgetHeadersTableOn();
     budgetTableOn();
+
 }else{
 
   }
@@ -136,7 +141,7 @@ function saveRow(){
   if(itemname != ''){
     var rowId = Date.now();
 
-    var editIcon = "<i class=\"fa fa-pencil-square-o\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
+    var editIcon = "<i class=\"fa fa-pencil-square-o w3-right-align\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
 
     var tr = document.createElement('tr');
     var td1 = tr.appendChild(document.createElement('td'));
@@ -154,6 +159,8 @@ function saveRow(){
     tr.id = rowId;
     document.getElementById("budgettabledetails").appendChild(tr);
 
+    updateBudgetTotal(itemtotal);
+
     if (document.getElementById("budget-table-details").style.display == "none"){
       budgetDetailsTableOn();
     }
@@ -163,30 +170,32 @@ function saveRow(){
     document.getElementById('qty').value = '';
     document.getElementById('itemtotal').value = '';
     budgetTableOff();
+    if(document.getElementById("budget-total").style.display == "none"){
+      budgetTotalOn();
+    }
   }else{
     alert("Item name can't be blank!");
   }
 }
 
+function updateBudgetTotal(itemtotal){
+  var budgettotal = Number(document.getElementById('budget-amount').innerHTML);
+  budgettotal = budgettotal + Number(itemtotal);
+  document.getElementById('budget-amount').innerHTML = '' + budgettotal;
+}
+
 function editRow(r, rowId){
-  //alert(rowId);
   var row = document.getElementById(rowId);
-  //alert(row);
 
   document.getElementById('itemname').value = row.cells[0].innerHTML;
   document.getElementById('itemrate').value = row.cells[1].innerHTML;
   document.getElementById('qty').value = row.cells[2].innerHTML;
   document.getElementById('itemtotal').value = row.cells[3].innerHTML;
   budgetTableOn();
-  // inner_html = "<td><input value=\"" + row.cells[0].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"itemname\" name=\"itemname\" placeholder=\"Item name\"><\/td><td><input value=\"" + row.cells[1].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"itemrate\" name=\"itemrate\" placeholder=\"Estimated rate\"><\/td><td><input value=\"" + row.cells[2].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"qty\" name=\"qty\" placeholder=\"Quantity\"><\/td><td><input value=\"" + row.cells[3].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"itemtotal\" name=\"itemtotal\" placeholder=\"Total\"><\/td><td><i class=\"fa fa-floppy-o w3-xlarge\" onclick=\"saveRow()\"><\/i><\/td>";
 
-  // document.getElementById('itemname').value = row.childNodes[0];
-  // document.getElementById('itemrate').value = row.childNodes[1];
-  // document.getElementById('qty').value = row.childNodes[2];
-  // document.getElementById('itemtotal').value = row.childNodes[3];
-  // document.getElementById(rowId).innerHTML = inner_html;
+  deduction = Number(document.getElementById('itemtotal').value) * -1;
+  updateBudgetTotal(deduction);
 
-  // rowId.parentNode.removeChild(rowId);
   var i = r.parentNode.parentNode.rowIndex;
   document.getElementById("budgettabledetails").deleteRow(i);
 }
