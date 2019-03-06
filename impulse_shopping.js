@@ -6,6 +6,20 @@ google.charts.setOnLoadCallback(drawSarahChart);
 
 // Draw the pie chart for the Anthony's pizza when Charts is loaded.
 google.charts.setOnLoadCallback(drawAnthonyChart);
+var username = '';
+
+function processForm(){
+  username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+
+  if(username!='' && password!=''){
+    window.location.href = "dashboard.html";
+  }else{
+    alert('Please enter your username and password to login!');
+    return;
+  }
+
+}
 
 // Callback that draws the pie chart for Sarah's pizza.
 function drawSarahChart() {

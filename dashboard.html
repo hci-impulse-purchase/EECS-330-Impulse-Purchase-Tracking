@@ -12,24 +12,12 @@
   html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 </style>
 
-<body class="w3-light-grey  bgimg">
+<body class="w3-light-grey  bgimg" onload="fff()">
 <script src="impulse_shopping.js"></script>
-  <header class="w3-container w3-teal header">
-    <h1>
-      <span class="profile-pic alignleft">
-        <!-- <span><img src="images/QH2.jpg" class="w3-circle aligncenter onhover"></span> -->
-      </span>
 
-      <span class = "header-text inline-text">
-        <span class="alignright">
-          <!-- <button onclick="location.href = 'dashboard.html';" class="w3-button w3-deep-orange w3-round-xxlarge btn-size">Back to Dashboard</button> -->
-        </span>
-      </span>
-    </h1>
-  </header>
 
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<div class="w3-content w3-margin-top" style="max-width:1400px;height:90%;overflow:auto;">
 
   <!-- The Grid -->
   <div class="w3-row-padding">
@@ -42,7 +30,7 @@
           <center><img src="images/QH.jpg" style="width:250px;padding-top:20px;" alt="QH"></center>
         </div>
         <div class="w3-container">
-          <center><div class="w3-text-black"><h1>Quincia Hu</h1></div></center>
+          <center><div class="w3-text-black"><h3>Quincia Hu</h3></div></center>
           <hr>
           <!-- Functional buttons -->
           <center>
@@ -83,7 +71,7 @@
         <h1 class="w3-text-light-black w3-padding-16">
           <i class="w3-margin-right fa fa-dashboard fa-fw w3-text-teal"></i>Dashboard
         <h3 class="w3-display-container w3-text-deep-purple">
-          <span id="displaying">Hey Quicnia. Welcome!</span>
+          <span id="displaying">Hey <span id="user-name2">Quincia</span>, Welcome!</span>
           <img src="images/star.jpg" align="left" hspace="30" style="width:7%;" alt="star">
         </h3>
         <h3 class="w3-text-gray"><i>Plan your budget to avoid those guilt trips.</i></h3>
@@ -129,17 +117,18 @@
 <!-- End Page Container -->
 
 <!-- Footer -->
-<footer class="w3-container w3-teal w3-center w3-margin-top">
+<footer class="w3-container w3-teal w3-center w3-margin-top footer">
   <p>Find us on social media.</br>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i></p>
+  <i class="fa fa-facebook-official w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-instagram w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-snapchat w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-twitter w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-linkedin w3-hover-opacity onhover" onlick=""></i></p>
 </footer>
 
-<script src="impulse_shopping.js"></script>
+<script src="impulse_shopping.js">
+</script>
 
 </body>
 </html>
