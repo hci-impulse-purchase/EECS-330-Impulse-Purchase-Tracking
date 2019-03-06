@@ -141,7 +141,7 @@ function saveRow(){
   if(itemname != ''){
     var rowId = Date.now();
 
-    var editIcon = "<i class=\"fa fa-pencil-square-o w3-right-align\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
+    var editIcon = "<i class=\"fa fa-pencil-square-o w3-right-align onhover\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
 
     var tr = document.createElement('tr');
     var td1 = tr.appendChild(document.createElement('td'));
