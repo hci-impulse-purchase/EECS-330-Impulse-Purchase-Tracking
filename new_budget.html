@@ -70,19 +70,19 @@
     <!-- Right Column -->
     <div class="w3-threequarter">
         <!-- Dashboard-->
-        <div class="w3-container w3-card w3-white w3-margin-bottom" style="height:670px;">
+        <div class="w3-container w3-card w3-white w3-margin-bottom" style="height:670px;overflow: auto;">
 
             <h1 class="w3-text-light-black w3-padding-16">
-                <i class="w3-margin-right fa fa-list-alt fa-fw w3-xxlarge w3-text-teal"></i>New Budget
+                <i class="w3-margin-right fa fa-list-alt fa-fw w3-xxlarge w3-text-teal"></i><span id="new-budget-title">New Budget</span>
 
                 <span class="alignright">
-                  <button onclick="" class="w3-button w3-red w3-round-large btn-size w3-margin-right">
+                  <button onclick="cancelOverlayOn()" class="w3-button w3-red w3-round-large btn-size w3-margin-right">
                       Cancel
                   </button>
                 </span>
                 &nbsp &nbsp
                 <span class="alignright">
-                  <button onclick="" class="w3-button w3-green w3-round-large btn-size w3-margin-right">
+                  <button onclick="saveOverlayOn()" class="w3-button w3-green w3-round-large btn-size w3-margin-right">
                       Save
                   </button>
                 </span>
@@ -95,7 +95,7 @@
                     <label for="budget_name">Budget name</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="budget_name" name="budget_name" placeholder="Budget name">
+                    <input type="text" id="budget_name" name="budget_name" placeholder="Budget name" oninput="updateNewBudgetTitle()" required>
                   </div>
                 </div>
                 <div class="row">
@@ -103,13 +103,13 @@
                     <label for="description">Description</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="description" name="description" placeholder="Description">
+                    <input type="text" id="description" name="description" placeholder="Description" required>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-25">
-                    <label for="est_date">Estimated Date</label>
+                    <label for="est_date">Tentative Date</label>
                   </div>
                   <div class="col-75">
                     <input type="date" id="est_date" onload="setDate()">
@@ -118,23 +118,37 @@
                 <br>
                 <center>
                 <div class="row" >
+
+                  <div class="w3-container" id="budget-table-headers" style="display:none;">
+                    <table class="w3-table-all w3-card-4" id="budgettableheaders">
+                      <tr>
+                        <th style="font-size: 15px;"><i class="fa fa-tag"></i> Item</th>
+                        <th style="font-size: 15px;"><i class="fa fa-usd"></i> Rate</th>
+                        <th style="font-size: 15px;"><i class="fa fa-hashtag"></i> Quantity</th>
+                        <th style="font-size: 15px;"><i class="fa fa-shopping-bag"></i> Total</th>
+                        <th></th>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="w3-container" id="budget-table-details" style="display:none;">
+                    <table class="w3-table-all w3-card-4" id="budgettabledetails">
+                    </table>
+                  </div>
+
                   <div class="w3-container" id="budget-table" style="display:none;">
                     <table class="w3-table-all w3-card-4" id="budgettable">
                       <tr>
-                        <th><i class="fa fa-tag"></i> Item</th>
-                        <th><i class="fa fa-usd"></i> Rate</th>
-                        <th><i class="fa fa-hashtag"></i> Quantity</th>
-                        <th><i class="fa fa-shopping-bag"></i> Total</th>
-                      </tr>
-                      <tr>
-                        <td><input type="text" id="itemname" name="itemname" placeholder="Item name"></td>
-                        <td><input type="text" id="itemrate" name="itemrate" placeholder="Estimated rate"></td>
-                        <td><input type="text" id="qty" name="qty" placeholder="Quantity"></td>
-                        <td><input type="text" id="itemtotal" name="itemtotal" placeholder="Total"></td>
+                        <td><input style="padding: 5px;" type="text" id="itemname" name="itemname" placeholder="Item name"></td>
+                        <td><input style="padding: 5px;" type="text" id="itemrate" name="itemrate" placeholder="Estimated rate" oninput="checkPrice()"></td>
+                        <td><input style="padding: 5px;" type="text" id="qty" name="qty" placeholder="Quantity" oninput="calculateItemTotal()"></td>
+                        <td><input style="padding: 5px;" type="text" id="itemtotal" name="itemtotal" placeholder="Total"></td>
+                        <td><i class="fa fa-floppy-o w3-xlarge" onclick="saveRow()"></i></td>
                       </tr>
 
                     </table>
                   </div>
+
                   <br>
                   <input class="w3-teal" type="submit" value="Add an item" onclick="updatebudgetTable()">
                 </div>
@@ -154,6 +168,42 @@
 </div>
 <!-- End Page Container -->
 
+<!-- Dummy data for budget details -->
+<div id="overlay">
+  <div id="overlay-text-save-cancel">
+
+    <div id="overlayMsg" class="w3-card-4 w3-light-gray" style="width:100%;height:100%;padding-top:55px;padding-right:10px;padding-left:10px;">
+    </div>
+    <br>
+    <div id="okButton" style="display:none;">
+    <center>
+      <button onclick="overlayOff('save')" style="width:25%;" class="w3-button w3-green w3-round-xxlarge btn-size">
+        Great <i class="fa fa-thumbs-o-up"></i>
+      </button>
+    </center>
+  </div>
+  <div id="cancelButtons" style="display:none;">
+  <center>
+    <button onclick="overlayOff('back')" style="width:25%;" class="w3-button w3-amber w3-round-xxlarge btn-size">
+      Take me back!
+    </button>
+    <button onclick="overlayOff('cancel')" style="width:30%;" class="w3-button w3-deep-orange w3-round-xxlarge btn-size">
+      Continue
+    </button>
+  </center>
+</div>
+<div id="saveButtons" style="display:none;">
+<center>
+  <button onclick="overlayOff('edit')" style="width:25%;" class="w3-button w3-amber w3-round-xxlarge btn-size">
+    Take me back!
+  </button>
+  <button onclick="overlayOff('okay')" style="width:30%;" class="w3-button w3-deep-orange w3-round-xxlarge btn-size">
+    Okay
+  </button>
+</center>
+</div>
+  </div>
+</div>
 <!-- Footer -->
 
 <footer class="w3-container w3-teal w3-center w3-margin-top footer">

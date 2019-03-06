@@ -111,6 +111,20 @@ body, html {
   -ms-transform: translate(-50%,-50%);
 }
 
+#overlay-text-save-cancel{
+  text-align: center;
+  position: absolute;
+  width:50%;
+  height:30%;
+  top: 40%;
+  left: 50%;
+  font-size: 20px;
+  padding: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
 th{
   font-weight: bold;
   font-size: 17px;
@@ -123,7 +137,7 @@ th{
 }
 
 #budget-table{
-  
+
 }
 
 
@@ -140,7 +154,7 @@ input[type=text]{
 
 /* Style the label to display next to the inputs */
 label {
-  padding: 12px 12px 12px 0;
+  padding-left: 12px;
   display: inline-block;
 }
 

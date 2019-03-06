@@ -101,37 +101,204 @@ function overlayOff() {
   document.getElementById("overlay").style.display = "none";
 }
 
+
 function budgetTableOn() {
     document.getElementById("budget-table").style.display = "block";
+}
 
+function budgetTableOff() {
+    document.getElementById("budget-table").style.display = "none";
+}
+
+function budgetHeadersTableOn() {
+    document.getElementById("budget-table-headers").style.display = "block";
+}
+
+function budgetDetailsTableOn() {
+    document.getElementById("budget-table-details").style.display = "block";
 }
 
 function updatebudgetTable(){
   if (document.getElementById("budget-table").style.display == "none"){
-  budgetTableOn();
+    budgetHeadersTableOn();
+    budgetTableOn();
 }else{
+
+  }
+}
+
+function saveRow(){
   var itemname = document.getElementById('itemname').value;
   var itemrate = document.getElementById('itemrate').value;
   var qty = document.getElementById('qty').value;
   var itemtotal = document.getElementById('itemtotal').value;
 
-  var tr = document.createElement('tr');
-  var td1 = tr.appendChild(document.createElement('td'));
-  td1.innerHTML = itemname;
-  var td2 = tr.appendChild(document.createElement('td'));
-  td2.innerHTML = itemrate;
-  var td3 = tr.appendChild(document.createElement('td'));
-  td3.innerHTML = qty;
-  var td4 = tr.appendChild(document.createElement('td'));
-  td4.innerHTML = itemtotal;
-  document.getElementById("budgettable").appendChild(tr);
+  if(itemname != ''){
+    var rowId = Date.now();
 
-  document.getElementById('itemname').value = '';
-  document.getElementById('itemrate').value = '';
-  document.getElementById('qty').value = '';
-  document.getElementById('itemtotal').value = '';
+    var editIcon = "<i class=\"fa fa-pencil-square-o\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
 
+    var tr = document.createElement('tr');
+    var td1 = tr.appendChild(document.createElement('td'));
+    td1.innerHTML = itemname;
+    var td2 = tr.appendChild(document.createElement('td'));
+    td2.innerHTML = itemrate;
+    var td3 = tr.appendChild(document.createElement('td'));
+    td3.innerHTML = qty;
+    var td4 = tr.appendChild(document.createElement('td'));
+    td4.innerHTML = itemtotal;
+    //td4.contentEditable = "true";
+    var td5 = tr.appendChild(document.createElement('td'));
+    td5.innerHTML = editIcon;
+
+    tr.id = rowId;
+    document.getElementById("budgettabledetails").appendChild(tr);
+
+    if (document.getElementById("budget-table-details").style.display == "none"){
+      budgetDetailsTableOn();
+    }
+
+    document.getElementById('itemname').value = '';
+    document.getElementById('itemrate').value = '';
+    document.getElementById('qty').value = '';
+    document.getElementById('itemtotal').value = '';
+    budgetTableOff();
+  }else{
+    alert("Item name can't be blank!");
+  }
 }
 
+function editRow(r, rowId){
+  //alert(rowId);
+  var row = document.getElementById(rowId);
+  //alert(row);
 
+  document.getElementById('itemname').value = row.cells[0].innerHTML;
+  document.getElementById('itemrate').value = row.cells[1].innerHTML;
+  document.getElementById('qty').value = row.cells[2].innerHTML;
+  document.getElementById('itemtotal').value = row.cells[3].innerHTML;
+  budgetTableOn();
+  // inner_html = "<td><input value=\"" + row.cells[0].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"itemname\" name=\"itemname\" placeholder=\"Item name\"><\/td><td><input value=\"" + row.cells[1].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"itemrate\" name=\"itemrate\" placeholder=\"Estimated rate\"><\/td><td><input value=\"" + row.cells[2].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"qty\" name=\"qty\" placeholder=\"Quantity\"><\/td><td><input value=\"" + row.cells[3].innerHTML+ "\" style=\"padding: 5px;\" type=\"text\" id=\"itemtotal\" name=\"itemtotal\" placeholder=\"Total\"><\/td><td><i class=\"fa fa-floppy-o w3-xlarge\" onclick=\"saveRow()\"><\/i><\/td>";
+
+  // document.getElementById('itemname').value = row.childNodes[0];
+  // document.getElementById('itemrate').value = row.childNodes[1];
+  // document.getElementById('qty').value = row.childNodes[2];
+  // document.getElementById('itemtotal').value = row.childNodes[3];
+  // document.getElementById(rowId).innerHTML = inner_html;
+
+  // rowId.parentNode.removeChild(rowId);
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("budgettabledetails").deleteRow(i);
+}
+
+function checkPrice() {
+  var itemrate = document.getElementById('itemrate').value;
+  if(isNaN(itemrate)){
+    alert("Price is a number!");
+    itemrate = ''+itemrate;
+    itemrate = itemrate.slice(0,itemrate.length-1);
+    document.getElementById('itemrate').value = ''+itemrate
+    return;
+  }else{
+    if(itemrate < 0){
+      alert("Price can't be negative");
+      return;
+    }
+  }
+}
+
+function calculateItemTotal(){
+  var itemrate = document.getElementById('itemrate').value;
+  var qty = document.getElementById('qty').value;
+
+  if(isNaN(qty)){
+    alert("Quantity is a number!");
+    qty = ''+qty;
+    qty = qty.slice(0,qty.length-1);
+    document.getElementById('qty').value = ''+qty
+    return;
+  }else{
+    if(qty < 0){
+      alert("Quantity can't be negative");
+      return;
+    }
+  }
+
+  total = itemrate * qty;
+  document.getElementById('itemtotal').value = '' + total;
+}
+
+function updateNewBudgetTitle(){
+  var input = document.getElementById('budget_name').value;
+
+  if(input.length > 30){
+    alert("The budget name is too long!");
+    return;
+  }
+  if(input.length > 0){
+    document.getElementById('new-budget-title').innerHTML = '' + input;
+  }else{
+    document.getElementById('new-budget-title').innerHTML = 'New Budget';
+  }
+}
+
+function saveOverlayOn() {
+  document.getElementById("overlay").style.display = "block";
+  // document.getElementById("okButton").style.display = "block";
+
+  budget_name = document.getElementById('budget_name').value;
+  description = document.getElementById('description').value;
+  est_date = document.getElementById('est_date').value;
+  table_count = document.getElementById("budgettabledetails").rows.length;
+
+  alert_message = '';
+
+  if(budget_name == '' || description == '' || est_date == ''){
+    alert_message = "Budget name, Description and Tentative date are mandatory fields!"
+    document.getElementById("saveButtons").style.display = "block";
+  }else if(table_count == 0){
+    alert_message = "There are no items in this budget. Do you want to save an empty budget?";
+    document.getElementById("cancelButtons").style.display = "block";
+  }else{
+    alert_message = "Your budget is successfully saved!";
+    document.getElementById("okButton").style.display = "block";
+  }
+
+  document.getElementById("overlayMsg").innerHTML = alert_message;
+}
+
+function overlayOff(fromButton) {
+  document.getElementById("overlay").style.display = "none";
+  if(document.getElementById("okButton").style.display == "block"){
+    document.getElementById("okButton").style.display = "none";
+  }
+  if(document.getElementById("cancelButtons").style.display == "block"){
+    document.getElementById("cancelButtons").style.display = "none";
+  }
+  if(document.getElementById("saveButtons").style.display == "block"){
+    document.getElementById("saveButtons").style.display = "none";
+  }
+
+  if(fromButton == 'save' || fromButton == 'cancel'){
+    window.location.href = 'budget_list.html';
+  }
+}
+
+function updatebudgetList(){
+  alert("was here1");
+  var budget_list = document.getElementById('budget-list');
+  var list_item = document.createElement('li');
+  list_item.appendChild(document.createTextNode("Four"));
+  var li_id = 'l'+Date.now();
+  var inner_html = budget_name + "<div class=\"w3-dropdown-hover w3-right\" style=\"background-color:white;\"><i class=\"fa fa-bars\"><\/i><div class=\"w3-dropdown-content w3-bar-block w3-border\" style=\"right:0\"><a href=\"#\" class=\"w3-bar-item w3-button w3-medium\" onclick=\"overlayOn()\"><i class=\"fa fa-eye\"><\/i> View details<\/a><a href=\"#\" class=\"w3-bar-item w3-button w3-medium\" onclick=\"\"><i class=\"fa fa-credit-card\"><\/i> Track purchase<\/a><a href=\"#\" class=\"w3-bar-item w3-button w3-medium\" onclick=\"deleteListItem(" +li_id+ ")\"><i class=\"fa fa-trash\"><\/i> Delete budget<\/a><\/div><\/div>";
+  list_item.id= li_id;
+  list_item.innerHTML = inner_html;
+  budget_list.appendChild(list_item);
+  alert(inner_html);
+}
+
+function cancelOverlayOn() {
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("cancelButtons").style.display = "block";
+  document.getElementById("overlayMsg").innerHTML = "You have unsaved changes, are you sure you want to cancel?";
 }
