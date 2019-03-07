@@ -92,11 +92,11 @@ function drawTable()
     data.addColumn('boolean', 'Worth It?');
     data.addColumn('boolean', 'Returned?');
     data.addRows([
-        ['Boots',  1, 'Jan 1, 2019', {v: 1000, f: '$10,00'}, true, false],
-        ['Handbag', 1, 'Jan 20, 2019', {v:300, f: '$3,00'},  false, false],
-        ['Seafood Buffet', 1, 'Feb 2, 2019', {v:200, f:'$2,00'}, false, true],
+        ['Boots',  1, 'Jan 1, 2019', {v: 1000, f: '$1000'}, true, false],
+        ['Handbag', 1, 'Jan 20, 2019', {v:300, f: '$300'},  false, false],
+        ['Seafood Buffet', 1, 'Feb 2, 2019', {v:200, f:'$200'}, false, true],
         ['Movie', 1, 'Feb 12, 2019', {v:20, f:'$20'}, true, true],
-        ['Computer Game', 1, 'Jan 13, 2019', {v:130, f:'$1,30'}, true, true],
+        ['Computer Game', 1, 'Jan 13, 2019', {v:130, f:'$130'}, true, true],
     ]);
 
     var table = new google.visualization.Table(document.getElementById('binge_table'));
@@ -335,17 +335,17 @@ function changeSub1()
     let item = document.getElementById("sub1");
     if (item.innerHTML === 'Subscribe')
     {
-        item.innerHTML = "Subscribed";
+        item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#989898';
         item.style.color = '#000000';
-        item.className = "w3-hover-green w3-hover-text-white";
+        item.className = "w3-hover-light-green w3-hover-text-white onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
         item.style.backgroundColor = '#0a9c04';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black";
+        item.className = "w3-hover-gray w3-hover-text-black onhover";
     }
 }
 
@@ -354,17 +354,17 @@ function changeSub2()
     let item = document.getElementById("sub2");
     if (item.innerHTML === 'Subscribe')
     {
-        item.innerHTML = "Subscribed";
+        item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
         item.style.color = '#000000';
-        item.className = "w3-hover-green w3-hover-text-white";
+        item.className = "w3-hover-light-green w3-hover-text-white onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
         item.style.backgroundColor = '#0a9c04';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black";
+        item.className = "w3-hover-gray w3-hover-text-black onhover";
     }
 }
 
@@ -373,16 +373,16 @@ function changeSub3()
     let item = document.getElementById("sub3");
     if (item.innerHTML === 'Subscribe')
     {
-        item.innerHTML = "Subscribed";
+        item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
         item.style.color = '#000000';
-        item.className = "w3-hover-green w3-hover-text-white";
+        item.className = "w3-hover-light-green w3-hover-text-white onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
         item.style.backgroundColor = '#0a9c04';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black";
+        item.className = "w3-hover-gray w3-hover-text-black onhover";
     }
 }
