@@ -90,12 +90,13 @@ function drawTable()
     data.addColumn('string', 'Recent Purchase Date');
     data.addColumn('number', 'Price');
     data.addColumn('boolean', 'Worth It?');
+    data.addColumn('boolean', 'Returned?');
     data.addRows([
-        ['Boots',  1, 'Jan 1, 2019', {v: 1000, f: '$10,00'}, true],
-        ['Handbag', 1, 'Jan 20, 2019', {v:300, f: '$3,00'},  false],
-        ['Seafood Buffet', 1, 'Feb 2, 2019', {v:200, f:'$2,00'}, false],
-        ['Movie', 1, 'Feb 12, 2019', {v:20, f:'$20'}, true],
-        ['Computer Game', 1, 'Jan 13, 2019', {v:130, f:'$1,30'}, true],
+        ['Boots',  1, 'Jan 1, 2019', {v: 1000, f: '$10,00'}, true, false],
+        ['Handbag', 1, 'Jan 20, 2019', {v:300, f: '$3,00'},  false, false],
+        ['Seafood Buffet', 1, 'Feb 2, 2019', {v:200, f:'$2,00'}, false, true],
+        ['Movie', 1, 'Feb 12, 2019', {v:20, f:'$20'}, true, true],
+        ['Computer Game', 1, 'Jan 13, 2019', {v:130, f:'$1,30'}, true, true],
     ]);
 
     var table = new google.visualization.Table(document.getElementById('binge_table'));
