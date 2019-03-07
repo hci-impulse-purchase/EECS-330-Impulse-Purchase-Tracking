@@ -15,6 +15,14 @@ body, html {
   background-image: url("../images/budget_list2.jpg");
 }
 
+.awimg {
+  background-image: url("../images/alert_background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .profile-pic{
   width:20%;
 }
