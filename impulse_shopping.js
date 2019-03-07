@@ -39,7 +39,7 @@ function drawSarahChart() {
     ]);
 
     // Set options for Sarah's pie chart.
-    var options = {title:'My Budget',
+    var options = {title:'My Overall Expense',
         width:465,
         height:280};
 
