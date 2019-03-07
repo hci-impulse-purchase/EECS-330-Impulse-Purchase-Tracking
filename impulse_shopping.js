@@ -325,3 +325,63 @@ function cancelOverlayOn() {
   document.getElementById("cancelButtons").style.display = "block";
   document.getElementById("overlayMsg").innerHTML = "You have unsaved changes, are you sure you want to cancel?";
 }
+
+
+////////////////
+// Rewards //
+function changeSub1()
+{
+    let item = document.getElementById("sub1");
+    if (item.innerHTML === 'Subscribe')
+    {
+        item.innerHTML = "Subscribed";
+        item.style.backgroundColor = '#989898';
+        item.style.color = '#000000';
+        item.className = "w3-hover-green w3-hover-text-white";
+    }
+    else
+    {
+        item.innerHTML = "Subscribe";
+        item.style.backgroundColor = '#0a9c04';
+        item.style.color = '#edffe5';
+        item.className = "w3-hover-gray w3-hover-text-black";
+    }
+}
+
+function changeSub2()
+{
+    let item = document.getElementById("sub2");
+    if (item.innerHTML === 'Subscribe')
+    {
+        item.innerHTML = "Subscribed";
+        item.style.backgroundColor = '#9E9E9E';
+        item.style.color = '#000000';
+        item.className = "w3-hover-green w3-hover-text-white";
+    }
+    else
+    {
+        item.innerHTML = "Subscribe";
+        item.style.backgroundColor = '#0a9c04';
+        item.style.color = '#edffe5';
+        item.className = "w3-hover-gray w3-hover-text-black";
+    }
+}
+
+function changeSub3()
+{
+    let item = document.getElementById("sub3");
+    if (item.innerHTML === 'Subscribe')
+    {
+        item.innerHTML = "Subscribed";
+        item.style.backgroundColor = '#9E9E9E';
+        item.style.color = '#000000';
+        item.className = "w3-hover-green w3-hover-text-white";
+    }
+    else
+    {
+        item.innerHTML = "Subscribe";
+        item.style.backgroundColor = '#0a9c04';
+        item.style.color = '#edffe5';
+        item.className = "w3-hover-gray w3-hover-text-black";
+    }
+}
