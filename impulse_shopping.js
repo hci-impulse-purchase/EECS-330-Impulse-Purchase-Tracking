@@ -41,7 +41,8 @@ function drawSarahChart() {
     // Set options for Sarah's pie chart.
     var options = {title:'My Overall Expense',
         width:465,
-        height:280};
+        height:280
+      };
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('budget_whole'));
@@ -128,9 +129,15 @@ function budgetTableOff() {
 function budgetHeadersTableOn() {
     document.getElementById("budget-table-headers").style.display = "block";
 }
+function budgetHeadersTableOff() {
+    document.getElementById("budget-table-headers").style.display = "none";
+}
 
 function budgetTotalOn() {
     document.getElementById("budget-total").style.display = "block";
+}
+function budgetTotalOff() {
+    document.getElementById("budget-total").style.display = "none";
 }
 
 function budgetDetailsTableOn() {
@@ -154,6 +161,10 @@ function saveRow(){
   var itemtotal = document.getElementById('itemtotal').value;
 
   if(itemname != ''){
+    if((itemrate!='' && qty=='') || (itemrate=='' && qty!='')){
+      alert('Please enter rate and quantity for '+itemname);
+      return;
+    }
     var rowId = Date.now();
 
     var editIcon = "<i class=\"fa fa-pencil-square-o w3-right-align onhover\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
@@ -229,6 +240,15 @@ function checkPrice() {
       return;
     }
   }
+
+  var qty = document.getElementById('qty').value;
+  var total = 0;
+  if(qty != ''){
+    total = itemrate * qty;
+    document.getElementById('itemtotal').value = '' + total;
+  }else{
+    document.getElementById('itemtotal').value = '' + total;
+  }
 }
 
 function calculateItemTotal(){
@@ -248,8 +268,13 @@ function calculateItemTotal(){
     }
   }
 
-  total = itemrate * qty;
-  document.getElementById('itemtotal').value = '' + total;
+  var total = 0;
+  if(itemrate != ''){
+    total = itemrate * qty;
+    document.getElementById('itemtotal').value = '' + total;
+  }else{
+    document.getElementById('itemtotal').value = '' + total;
+  }
 }
 
 function updateNewBudgetTitle(){
@@ -333,56 +358,69 @@ function cancelOverlayOn() {
 function changeSub1()
 {
     let item = document.getElementById("sub1");
-    if (item.innerHTML === 'Subscribe')
+    if (item.innerHTML == 'Subscribe')
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#989898';
         item.style.color = '#000000';
-        item.className = "w3-hover-light-green w3-hover-text-white onhover";
+        item.className = "onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
-        item.style.backgroundColor = '#0a9c04';
+        item.style.backgroundColor = 'teal';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black onhover";
+        item.className = "onhover";
     }
 }
 
 function changeSub2()
 {
     let item = document.getElementById("sub2");
-    if (item.innerHTML === 'Subscribe')
+    if (item.innerHTML == 'Subscribe')
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
         item.style.color = '#000000';
-        item.className = "w3-hover-light-green w3-hover-text-white onhover";
+        item.className = "onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
-        item.style.backgroundColor = '#0a9c04';
+        item.style.backgroundColor = 'teal';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black onhover";
+        item.className = "onhover";
     }
 }
 
 function changeSub3()
 {
     let item = document.getElementById("sub3");
-    if (item.innerHTML === 'Subscribe')
+    if (item.innerHTML == 'Subscribe')
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
         item.style.color = '#000000';
-        item.className = "w3-hover-light-green w3-hover-text-white onhover";
+        item.className = "onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
-        item.style.backgroundColor = '#0a9c04';
+        item.style.backgroundColor = 'teal';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black onhover";
+        item.className = "onhover";
     }
+}
+
+function deleteBudgetInputRow(){
+  budgetTableOff();
+  table_count = document.getElementById("budgettabledetails").rows.length;
+  if(table_count == 0){
+    budgetTotalOff();
+    budgetHeadersTableOff()
+  }
+}
+
+function alertOff(){
+  document.getElementById("overlay").style.display = 'none';
 }
