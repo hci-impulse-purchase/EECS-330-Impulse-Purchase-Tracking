@@ -195,7 +195,7 @@ function saveRow(){
     tr.id = rowId;
     document.getElementById("budgettabledetails").appendChild(tr);
 
-    updateBudgetTotal(itemtotal);
+    // updateBudgetTotal(itemtotal);
 
     if (document.getElementById("budget-table-details").style.display == "none"){
       budgetDetailsTableOn();
@@ -214,41 +214,63 @@ function saveRow(){
   }
 }
 
-function updateBudgetTotal(itemtotal){
-  var budgettotal = Number(document.getElementById('budget-amount').innerHTML);
-  budgettotal = budgettotal + Number(itemtotal);
-  document.getElementById('budget-amount').innerHTML = '' + budgettotal;
+function updateBudgetTotal(){
+  // var budgettotal = Number(document.getElementById('budget-amount').innerHTML);
+  // budgettotal = budgettotal + Number(itemtotal);
+  // document.getElementById('budget-amount').innerHTML = '' + budgettotal;
+
+  var total = Number(document.getElementById('itemtotal').innerHTML);
+  var table = document.getElementById("budgettabledetails");
+  for (var i = 0, row; row = table.rows[i]; i++) {
+    total += Number(row.cells[3].innerHTML)
+  }
+  document.getElementById('budget-amount').innerHTML = '' + total;
 }
 
 function editRow(r, rowId){
+
+  var currTotal = Number(document.getElementById('itemtotal').innerHTML);
   var row = document.getElementById(rowId);
 
   document.getElementById('itemname').value = row.cells[0].innerHTML;
   document.getElementById('itemrate').value = row.cells[1].innerHTML;
   document.getElementById('qty').value = row.cells[2].innerHTML;
   document.getElementById('itemtotal').value = row.cells[3].innerHTML;
+  document.getElementById('itemtotal').innerHTML = row.cells[3].innerHTML;
+
   budgetTableOn();
 
-  deduction = Number(document.getElementById('itemtotal').value) * -1;
-  updateBudgetTotal(deduction);
+  // deduction = Number(document.getElementById('itemtotal').value) * -1;
+  // updateBudgetTotal(deduction);
 
   var i = r.parentNode.parentNode.rowIndex;
   document.getElementById("budgettabledetails").deleteRow(i);
+  updateBudgetTotal();
+}
+
+function isInputRowEmpty(){
+  var itemname = document.getElementById('itemname').value;
+  var itemrate = document.getElementById('itemrate').value;
+  var qty = document.getElementById('qty').value;
+  if (itemname == '' && itemrate == '' && qty == ''){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 function deleteBudgetTableRow(r, rowId){
-  var row = document.getElementById(rowId);
-  deduction = Number(row.cells[3].innerHTML) * -1;
-  updateBudgetTotal(deduction);
 
   var i = r.parentNode.parentNode.rowIndex;
   document.getElementById("budgettabledetails").deleteRow(i);
 
   table_count = document.getElementById("budgettabledetails").rows.length;
-  if(table_count == 0){
+  if(table_count == 0 && isInputRowEmpty()){
     budgetTotalOff();
     budgetHeadersTableOff()
   }
+  updateBudgetTotal();
 }
 
 function checkPrice() {
@@ -274,6 +296,7 @@ function checkPrice() {
   }else{
     document.getElementById('itemtotal').innerHTML = '' + total;
   }
+  updateBudgetTotal(total);
 }
 
 function calculateItemTotal(){
@@ -300,6 +323,7 @@ function calculateItemTotal(){
   }else{
     document.getElementById('itemtotal').innerHTML = '' + total;
   }
+  updateBudgetTotal(total);
 }
 
 function updateNewBudgetTitle(){
@@ -438,12 +462,17 @@ function changeSub3()
 }
 
 function deleteBudgetInputRow(){
+  document.getElementById('itemname').value = '';
+  document.getElementById('itemrate').value = '';
+  document.getElementById('qty').value = '';
+  document.getElementById('itemtotal').innerHTML = '';
   budgetTableOff();
   table_count = document.getElementById("budgettabledetails").rows.length;
   if(table_count == 0){
     budgetTotalOff();
     budgetHeadersTableOff()
   }
+  updateBudgetTotal();
 }
 
 function alertOff(){

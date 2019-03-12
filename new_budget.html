@@ -42,7 +42,7 @@
                     <br>
                     <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%;"
                             class="w3-margin w3-text-white w3-hover-grey onhover">
-                        <h4>Budget History</h4>
+                        <h4>My Budgets</h4>
                     </button>
                     <button onclick="" style="background-color: #e8a1a2; width:75%;" class="w3-margin w3-text-white w3-hover-grey onhover">
                         <h4>Purchase Tracker</h4>
@@ -85,7 +85,7 @@
 
                 <div class="row">
                   <div class="col-25 w3-text-gray">
-                    <label for="budget_name">Budget name</label>
+                    <label for="budget_name">Budget name<span style="color:red">*</span></label>
                   </div>
                   <div class="col-75">
                     <input type="text" id="budget_name" name="budget_name" placeholder="Budget name" oninput="updateNewBudgetTitle()" required>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="row w3-text-gray">
                   <div class="col-25">
-                    <label for="description">Description</label>
+                    <label for="description">Description<span style="color:red">*</span></label>
                   </div>
                   <div class="col-75 w3-text-gray">
                     <input type="text" id="description" name="description" placeholder="Description" required>
@@ -102,7 +102,7 @@
 
                 <div class="row w3-text-gray">
                   <div class="col-25">
-                    <label for="est_date">Tentative Date</label>
+                    <label for="est_date">Tentative Date<span style="color:red">*</span></label>
                   </div>
                   <div class="col-75">
                     <input class="w3-text-gray"type="date" id="est_date" onload="setDate()">
@@ -127,17 +127,17 @@
                   <div class="w3-container" id="budget-table" style="display:none;">
                     <table class="w3-table-all w3-card-4" id="budgettable">
                       <tr>
-                        <td style="width:23%;"><input style="padding: 5px;" type="text" id="itemname" name="itemname" placeholder="Item name"></td>
-                        <td style="width:23%;"><input style="padding: 5px;" type="text" id="itemrate" name="itemrate" placeholder="Estimated rate" oninput="checkPrice()"></td>
-                        <td style="width:23%;"><input style="padding: 5px;" type="text" id="qty" name="qty" placeholder="Quantity" oninput="calculateItemTotal()"></td>
-                        <td style="width:23%;padding: 5px;text-align:center;" id="itemtotal"></td>
-                        <td style="width:8%;text-align:center;"><i class="fa fa-floppy-o w3-large onhover" onclick="saveRow()"></i> <i class="fa fa-trash w3-large onhover" onclick="deleteBudgetInputRow()"></i></td>
+                        <td style="width:23%;"><input style="padding: 5px;color:#424c53;border: 1px solid teal;" type="text" id="itemname" name="itemname" placeholder="Item name"></td>
+                        <td style="width:23%;"><input style="padding: 5px;color:#424c53;border: 1px solid teal;" type="text" id="itemrate" name="itemrate" placeholder="Estimated rate" oninput="checkPrice()"></td>
+                        <td style="width:23%;"><input style="padding: 5px;color:#424c53;border: 1px solid teal;" type="text" id="qty" name="qty" placeholder="Quantity" oninput="calculateItemTotal()"></td>
+                        <td style="width:23%;padding: 5px;text-align:center;color:#424c53;" id="itemtotal"></td>
+                        <td style="width:8%;text-align:center;color:#424c53;"><i class="fa fa-floppy-o w3-large onhover" onclick="saveRow()"></i> <i class="fa fa-trash w3-large onhover" onclick="deleteBudgetInputRow()"></i></td>
                       </tr>
 
                     </table>
                   </div>
                   <div class="w3-container" id="budget-table-details" style="display:none;">
-                    <table class="w3-table-all w3-card-4" id="budgettabledetails">
+                    <table class="w3-table-all w3-card-4 w3-text-dark-gray" id="budgettabledetails">
                     </table>
                   </div>
 
@@ -145,9 +145,7 @@
                   <div class="w3-container" id="budget-total" style="display:none;">
                     <table class="w3-table-all" id="budgettotal">
                       <tr>
-                        <td class="td-total" style="width:23%;"><i class="fa fa-money"></i> Total budget estimate:</td>
-                        <td class="td-total" style="width:23%;"></td>
-                        <td class="td-total" style="width:23%;"></td>
+                        <td class="td-total" style="width:69%;"><i class="fa fa-money"></i> Total budget estimate:</td>
                         <td class="td-total" style="width:23%;text-align:center;" id="budget-amount">0</td>
                         <td style="width:8%;"></td>
                       </tr>
@@ -177,36 +175,37 @@
 <div id="overlay">
   <div id="overlay-text-save-cancel">
 
-    <div id="overlayMsg" class="w3-card-4 w3-light-gray" style="width:100%;height:100%;padding-top:55px;padding-right:10px;padding-left:10px;">
-    </div>
-    <br>
-    <div id="okButton" style="display:none;">
-    <center>
-      <button onclick="overlayOff('save')" style="width:25%;" class="w3-button w3-teal w3-round-xxlarge btn-size">
-        Great <i class="fa fa-thumbs-o-up"></i>
-      </button>
-    </center>
+    <div class="w3-card-4 w3-text-dark-gray" style="width:100%;height:100%;padding-top:55px;padding-right:10px;padding-left:10px;background-color:#e5f9f4">
+      <center>
+        <span id="overlayMsg"></span><br><br>
+
+        <span id="cancelButtons" style="display:none;">
+          <button onclick="overlayOff('back')" style="width:auto; background-color:#f77d64;padding:15px;" class="w3-button w3-round-xxlarge btn-size">
+            Take me back!
+          </button>
+          <button onclick="overlayOff('cancel')" style="width:auto;padding:15px;" class="w3-button w3-teal w3-round-xxlarge btn-size">
+            Continue
+          </button>
+        </span>
+
+
+        <span id="okButton" style="display:none;">
+          <button onclick="overlayOff('save')" style="width:auto;padding:15px;" class="w3-button w3-teal w3-round-xxlarge btn-size">
+            Great <i class="fa fa-thumbs-o-up"></i>
+          </button>
+        </span>
+
+        <span id="saveButtons" style="display:none;">
+          <button onclick="overlayOff('edit')" style="width:auto;padding:15px;" class="w3-button w3-teal w3-round-xxlarge btn-size">
+            Okay
+          </button>
+          <!-- <button onclick="overlayOff('okay')" style="width:30%;" class="w3-button w3-deep-orange w3-round-xxlarge btn-size">
+            Okay
+          </button> -->
+        </span>
+      </center>
   </div>
-  <div id="cancelButtons" style="display:none;">
-  <center>
-    <button onclick="overlayOff('back')" style="width:25%; background-color:#f77d64;" class="w3-button w3-round-xxlarge btn-size">
-      Take me back!
-    </button>
-    <button onclick="overlayOff('cancel')" style="width:30%;" class="w3-button w3-teal w3-round-xxlarge btn-size">
-      Continue
-    </button>
-  </center>
-</div>
-<div id="saveButtons" style="display:none;">
-<center>
-  <button onclick="overlayOff('edit')" style="width:25%;" class="w3-button w3-teal w3-round-xxlarge btn-size">
-    Okay
-  </button>
-  <!-- <button onclick="overlayOff('okay')" style="width:30%;" class="w3-button w3-deep-orange w3-round-xxlarge btn-size">
-    Okay
-  </button> -->
-</center>
-</div>
+
   </div>
 </div>
 <!-- Footer -->
