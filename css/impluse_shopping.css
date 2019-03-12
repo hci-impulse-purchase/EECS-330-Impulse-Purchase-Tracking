@@ -30,6 +30,7 @@ body, html {
 .header{
   height: 10%;
   width: 100%;
+  background-color: #5b9291;
 }
 
 .header-text{
@@ -43,6 +44,7 @@ body, html {
   float: right;
   position: absolute;
   bottom: 0;
+  background-color: #5b9291;
 }
 
 .display{
@@ -145,10 +147,7 @@ th{
 }
 
 #budget-table{
-
 }
-
-
 
 
 input[type=text]{

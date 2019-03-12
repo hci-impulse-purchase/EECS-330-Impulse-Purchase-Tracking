@@ -41,7 +41,8 @@ function drawSarahChart() {
     // Set options for Sarah's pie chart.
     var options = {title:'My Overall Expense',
         width:465,
-        height:280};
+        height:280
+      };
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('budget_whole'));
@@ -128,9 +129,15 @@ function budgetTableOff() {
 function budgetHeadersTableOn() {
     document.getElementById("budget-table-headers").style.display = "block";
 }
+function budgetHeadersTableOff() {
+    document.getElementById("budget-table-headers").style.display = "none";
+}
 
 function budgetTotalOn() {
     document.getElementById("budget-total").style.display = "block";
+}
+function budgetTotalOff() {
+    document.getElementById("budget-total").style.display = "none";
 }
 
 function budgetDetailsTableOn() {
@@ -151,25 +158,39 @@ function saveRow(){
   var itemname = document.getElementById('itemname').value;
   var itemrate = document.getElementById('itemrate').value;
   var qty = document.getElementById('qty').value;
-  var itemtotal = document.getElementById('itemtotal').value;
+  var itemtotal = document.getElementById('itemtotal').innerHTML;
 
   if(itemname != ''){
+    if((itemrate!='' && qty=='') || (itemrate=='' && qty!='')){
+      alert('Please enter rate and quantity for '+itemname);
+      return;
+    }
     var rowId = Date.now();
 
-    var editIcon = "<i class=\"fa fa-pencil-square-o w3-right-align onhover\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
+    var editDeleteIcons = "<i class=\"fa fa-pencil-square-o w3-right-align onhover\" onclick=\"editRow(this," + rowId + ")\"><\/i> <i class=\"fa fa-trash w3-large onhover\" onclick=\"deleteBudgetTableRow(this," + rowId + ")\"><\/i>";
 
     var tr = document.createElement('tr');
     var td1 = tr.appendChild(document.createElement('td'));
     td1.innerHTML = itemname;
+    td1.style.width = "23%";
+    td1.style.textAlign = "center";
     var td2 = tr.appendChild(document.createElement('td'));
     td2.innerHTML = itemrate;
+    td2.style.width = "23%";
+    td2.style.textAlign = "center";
     var td3 = tr.appendChild(document.createElement('td'));
     td3.innerHTML = qty;
+    td3.style.width = "23%";
+    td3.style.textAlign = "center";
     var td4 = tr.appendChild(document.createElement('td'));
     td4.innerHTML = itemtotal;
+    td4.style.width = "23%";
+    td4.style.textAlign = "center";
     //td4.contentEditable = "true";
     var td5 = tr.appendChild(document.createElement('td'));
-    td5.innerHTML = editIcon;
+    td5.innerHTML = editDeleteIcons;
+    td5.style.width = "8%";
+    td5.style.textAlign = "center";
 
     tr.id = rowId;
     document.getElementById("budgettabledetails").appendChild(tr);
@@ -183,7 +204,7 @@ function saveRow(){
     document.getElementById('itemname').value = '';
     document.getElementById('itemrate').value = '';
     document.getElementById('qty').value = '';
-    document.getElementById('itemtotal').value = '';
+    document.getElementById('itemtotal').innerHTML = '';
     budgetTableOff();
     if(document.getElementById("budget-total").style.display == "none"){
       budgetTotalOn();
@@ -215,6 +236,21 @@ function editRow(r, rowId){
   document.getElementById("budgettabledetails").deleteRow(i);
 }
 
+function deleteBudgetTableRow(r, rowId){
+  var row = document.getElementById(rowId);
+  deduction = Number(row.cells[3].innerHTML) * -1;
+  updateBudgetTotal(deduction);
+
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("budgettabledetails").deleteRow(i);
+
+  table_count = document.getElementById("budgettabledetails").rows.length;
+  if(table_count == 0){
+    budgetTotalOff();
+    budgetHeadersTableOff()
+  }
+}
+
 function checkPrice() {
   var itemrate = document.getElementById('itemrate').value;
   if(isNaN(itemrate)){
@@ -228,6 +264,15 @@ function checkPrice() {
       alert("Price can't be negative");
       return;
     }
+  }
+
+  var qty = document.getElementById('qty').value;
+  var total = 0;
+  if(qty != ''){
+    total = itemrate * qty;
+    document.getElementById('itemtotal').innerHTML = '' + total;
+  }else{
+    document.getElementById('itemtotal').innerHTML = '' + total;
   }
 }
 
@@ -248,14 +293,19 @@ function calculateItemTotal(){
     }
   }
 
-  total = itemrate * qty;
-  document.getElementById('itemtotal').value = '' + total;
+  var total = 0;
+  if(itemrate != ''){
+    total = itemrate * qty;
+    document.getElementById('itemtotal').innerHTML = '' + total;
+  }else{
+    document.getElementById('itemtotal').innerHTML = '' + total;
+  }
 }
 
 function updateNewBudgetTitle(){
   var input = document.getElementById('budget_name').value;
 
-  if(input.length > 30){
+  if(input.length > 24){
     alert("The budget name is too long!");
     return;
   }
@@ -333,56 +383,69 @@ function cancelOverlayOn() {
 function changeSub1()
 {
     let item = document.getElementById("sub1");
-    if (item.innerHTML === 'Subscribe')
+    if (item.innerHTML == 'Subscribe')
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#989898';
         item.style.color = '#000000';
-        item.className = "w3-hover-light-green w3-hover-text-white onhover";
+        item.className = "onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
-        item.style.backgroundColor = '#0a9c04';
+        item.style.backgroundColor = 'teal';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black onhover";
+        item.className = "onhover";
     }
 }
 
 function changeSub2()
 {
     let item = document.getElementById("sub2");
-    if (item.innerHTML === 'Subscribe')
+    if (item.innerHTML == 'Subscribe')
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
         item.style.color = '#000000';
-        item.className = "w3-hover-light-green w3-hover-text-white onhover";
+        item.className = "onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
-        item.style.backgroundColor = '#0a9c04';
+        item.style.backgroundColor = 'teal';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black onhover";
+        item.className = "onhover";
     }
 }
 
 function changeSub3()
 {
     let item = document.getElementById("sub3");
-    if (item.innerHTML === 'Subscribe')
+    if (item.innerHTML == 'Subscribe')
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
         item.style.color = '#000000';
-        item.className = "w3-hover-light-green w3-hover-text-white onhover";
+        item.className = "onhover";
     }
     else
     {
         item.innerHTML = "Subscribe";
-        item.style.backgroundColor = '#0a9c04';
+        item.style.backgroundColor = 'teal';
         item.style.color = '#edffe5';
-        item.className = "w3-hover-gray w3-hover-text-black onhover";
+        item.className = "onhover";
     }
+}
+
+function deleteBudgetInputRow(){
+  budgetTableOff();
+  table_count = document.getElementById("budgettabledetails").rows.length;
+  if(table_count == 0){
+    budgetTotalOff();
+    budgetHeadersTableOff()
+  }
+}
+
+function alertOff(){
+  document.getElementById("overlay").style.display = 'none';
 }

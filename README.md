@@ -6,3 +6,6 @@ We have implemented the pages for new budget and binge list
 
 # P8
 Alerts and post purchase evaluation page
+
+# P9
+Making styling changes and improvements according to the usability testing
