@@ -411,7 +411,7 @@ function changeSub1()
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#989898';
-        item.style.color = '#000000';
+        item.style.color = '#424c53';
         item.className = "onhover";
     }
     else
@@ -430,7 +430,7 @@ function changeSub2()
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
-        item.style.color = '#000000';
+        item.style.color = '#424c53';
         item.className = "onhover";
     }
     else
@@ -449,7 +449,7 @@ function changeSub3()
     {
         item.innerHTML = "<i class=\"fa fa-check w3-right-align\"><\/i>"+" Subscribed";
         item.style.backgroundColor = '#9E9E9E';
-        item.style.color = '#000000';
+        item.style.color = '#424c53';
         item.className = "onhover";
     }
     else
