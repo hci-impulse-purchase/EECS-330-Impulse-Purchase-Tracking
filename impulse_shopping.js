@@ -158,7 +158,7 @@ function saveRow(){
   var itemname = document.getElementById('itemname').value;
   var itemrate = document.getElementById('itemrate').value;
   var qty = document.getElementById('qty').value;
-  var itemtotal = document.getElementById('itemtotal').value;
+  var itemtotal = document.getElementById('itemtotal').innerHTML;
 
   if(itemname != ''){
     if((itemrate!='' && qty=='') || (itemrate=='' && qty!='')){
@@ -167,20 +167,30 @@ function saveRow(){
     }
     var rowId = Date.now();
 
-    var editIcon = "<i class=\"fa fa-pencil-square-o w3-right-align onhover\" onclick=\"editRow(this," + rowId + ")\"><\/i>";
+    var editDeleteIcons = "<i class=\"fa fa-pencil-square-o w3-right-align onhover\" onclick=\"editRow(this," + rowId + ")\"><\/i> <i class=\"fa fa-trash w3-large onhover\" onclick=\"deleteBudgetTableRow(this," + rowId + ")\"><\/i>";
 
     var tr = document.createElement('tr');
     var td1 = tr.appendChild(document.createElement('td'));
     td1.innerHTML = itemname;
+    td1.style.width = "23%";
+    td1.style.textAlign = "center";
     var td2 = tr.appendChild(document.createElement('td'));
     td2.innerHTML = itemrate;
+    td2.style.width = "23%";
+    td2.style.textAlign = "center";
     var td3 = tr.appendChild(document.createElement('td'));
     td3.innerHTML = qty;
+    td3.style.width = "23%";
+    td3.style.textAlign = "center";
     var td4 = tr.appendChild(document.createElement('td'));
     td4.innerHTML = itemtotal;
+    td4.style.width = "23%";
+    td4.style.textAlign = "center";
     //td4.contentEditable = "true";
     var td5 = tr.appendChild(document.createElement('td'));
-    td5.innerHTML = editIcon;
+    td5.innerHTML = editDeleteIcons;
+    td5.style.width = "8%";
+    td5.style.textAlign = "center";
 
     tr.id = rowId;
     document.getElementById("budgettabledetails").appendChild(tr);
@@ -194,7 +204,7 @@ function saveRow(){
     document.getElementById('itemname').value = '';
     document.getElementById('itemrate').value = '';
     document.getElementById('qty').value = '';
-    document.getElementById('itemtotal').value = '';
+    document.getElementById('itemtotal').innerHTML = '';
     budgetTableOff();
     if(document.getElementById("budget-total").style.display == "none"){
       budgetTotalOn();
@@ -226,6 +236,21 @@ function editRow(r, rowId){
   document.getElementById("budgettabledetails").deleteRow(i);
 }
 
+function deleteBudgetTableRow(r, rowId){
+  var row = document.getElementById(rowId);
+  deduction = Number(row.cells[3].innerHTML) * -1;
+  updateBudgetTotal(deduction);
+
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("budgettabledetails").deleteRow(i);
+
+  table_count = document.getElementById("budgettabledetails").rows.length;
+  if(table_count == 0){
+    budgetTotalOff();
+    budgetHeadersTableOff()
+  }
+}
+
 function checkPrice() {
   var itemrate = document.getElementById('itemrate').value;
   if(isNaN(itemrate)){
@@ -245,9 +270,9 @@ function checkPrice() {
   var total = 0;
   if(qty != ''){
     total = itemrate * qty;
-    document.getElementById('itemtotal').value = '' + total;
+    document.getElementById('itemtotal').innerHTML = '' + total;
   }else{
-    document.getElementById('itemtotal').value = '' + total;
+    document.getElementById('itemtotal').innerHTML = '' + total;
   }
 }
 
@@ -271,16 +296,16 @@ function calculateItemTotal(){
   var total = 0;
   if(itemrate != ''){
     total = itemrate * qty;
-    document.getElementById('itemtotal').value = '' + total;
+    document.getElementById('itemtotal').innerHTML = '' + total;
   }else{
-    document.getElementById('itemtotal').value = '' + total;
+    document.getElementById('itemtotal').innerHTML = '' + total;
   }
 }
 
 function updateNewBudgetTitle(){
   var input = document.getElementById('budget_name').value;
 
-  if(input.length > 30){
+  if(input.length > 24){
     alert("The budget name is too long!");
     return;
   }
