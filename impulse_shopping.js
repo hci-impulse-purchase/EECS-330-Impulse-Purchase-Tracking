@@ -46,7 +46,7 @@ function drawSarahChart() {
 
     // Instantiate and draw the chart for Sarah's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('budget_whole'));
-    chart.draw(data, options);
+    chart.draw(data, {title:'My Overall Expense',showRowNumber: true, width: '100%', height: 280});
 }
 
 // Callback that draws the pie chart for Anthony's pizza.
@@ -73,7 +73,7 @@ function drawAnthonyChart() {
 
     // Instantiate and draw the chart for Anthony's pizza.
     var chart = new google.visualization.PieChart(document.getElementById('budget_binge'));
-    chart.draw(data, options);
+    chart.draw(data, {title:'My Binge Expense', showRowNumber: true, width: '100%', height: 280});
 }
 
 
@@ -102,7 +102,7 @@ function drawTable()
 
     var table = new google.visualization.Table(document.getElementById('binge_table'));
 
-    table.draw(data, {showRowNumber: true, width: '100%', height: '150%'});
+    table.draw(data, {showRowNumber: true, width: '100%', height: 180});
 }
 
 

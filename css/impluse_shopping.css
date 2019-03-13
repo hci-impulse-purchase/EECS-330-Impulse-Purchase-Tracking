@@ -23,18 +23,22 @@ body, html {
   background-size: cover;
 }
 
+h1{
+  vertical-align: middle;
+}
+
 .profile-pic{
-  width:20%;
+  width:27%;
 }
 
 .header{
   height: 10%;
   width: 100%;
   background-color: #5b9291;
+  vertical-align: middle;
 }
 
 .header-text{
-  width:80%;
   float: right;
 }
 
