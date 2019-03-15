@@ -6,6 +6,13 @@ body, html {
   overflow: auto;
 }
 
+.albums-album-wrapper {
+		display: flex;
+	  flex-direction: row;
+		justify-content: space-around;
+
+}
+
 /* background image*/
 .bgimg {
   background-attachment: fixed;
@@ -15,24 +22,23 @@ body, html {
   background-image: url("../images/budget_list2.jpg");
 }
 
-.awimg {
-  background-image: url("../images/alert_background.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+img {
+  max-width: 20%;
+  height: auto;
+  object-fit:contain;
 }
-
 h1{
   vertical-align: middle;
 }
 
 .profile-pic{
   width:27%;
+  object-fit:contain;
+  padding-bottom: 2px;
 }
 
 .header{
-  height: 10%;
+  height: 9%;
   width: 100%;
   background-color: #5b9291;
   vertical-align: middle;
@@ -43,7 +49,7 @@ h1{
 }
 
 .footer{
-  height: 10%;
+  height: 8%;
   width: 100%;
   float: right;
   position: absolute;
@@ -91,6 +97,10 @@ h1{
 
 .btn-size{
   font-size: 20px;
+  word-wrap: break-word;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit:scale-down;
 }
 
 #login{
