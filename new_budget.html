@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<title>Binge List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/impluse_shopping.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Cabin"}
+</style>
+<body class="w3-light-grey bgimg">
+
+  <header class="w3-container w3-bar w3-teal header">
+      <h1>
+        <span class="profile-pic alignleft">
+          <span><img src="images/QH2.jpg" style="min-width:15%;vertical-align:middle;" class="w3-circle aligncenter onhover"></span>
+        </span>
+
+          <span class = "header-text inline-text">
+          <span class="alignright">
+            <button onclick="location.href = 'dashboard.html';" class="w3-button w3-round-xxlarge btn-size w3-hover-text-dark-gray" style="background-color:#b05b4b;">
+              <i class="fa fa-chevron-circle-left"></i> Back to Dashboard</button>
+          </span>
+        </span>
+      </h1>
+  </header>
+
+<!-- Page Container -->
+<div class="w3-row-padding aligncenter w3-margin-top" style="max-width:95%;">
+
+    <!-- Left Column -->
+    <div class="w3-quarter">
+
+        <div class="w3-white w3-card-4">
+            <div class="w3-display-container" style="height:700px;">
+                <!-- Functional buttons -->
+                <center>
+                    <br>
+                    <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                            class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>My Budgets</h4>
+                    </button>
+                    <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>Purchase Tracker</h4>
+                    </button>
+                    <button onclick="location.href = 'binge_List.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>Binge List</h4>
+                    </button>
+                    <button onclick="location.href = 'rewards.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>Rewards</h4>
+                    </button>
+                </center>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Left Column -->
+
+    <!-- Right Column -->
+    <div class="w3-threequarter">
+        <!-- Dashboard-->
+        <div class="w3-container w3-card-4 w3-white w3-margin-bottom" style="height:700px;overflow: auto;">
+
+            <h1 class="w3-text-teal w3-padding-16 w3-margin-left">
+                <i class="w3-margin-right fa fa-list-alt fa-fw w3-xxlarge w3-text-teal"></i><span id="new-budget-title">New Budget</span>
+
+                <span class="alignright">
+                  <button onclick="cancelOverlayOn()" style="background-color:#f77d64;" class="w3-button w3-text-white w3-round-large btn-size w3-margin-right w3-hover-text-dark-gray">
+                      Cancel
+                  </button>
+                </span>
+                &nbsp &nbsp
+                <span class="alignright">
+                  <button onclick="saveOverlayOn()" class="w3-button w3-teal w3-round-large btn-size w3-margin-right w3-hover-text-dark-gray">
+                      Save
+                  </button>
+                </span>
+            </h1>
+
+            <div class="container w3-margin-left w3-margin-right">
+
+                <div class="row">
+                  <div class="col-25 w3-text-gray">
+                    <label for="budget_name">Budget name<span style="color:red">*</span></label>
+                  </div>
+                  <div class="col-75">
+                    <input type="text" id="budget_name" name="budget_name" placeholder="Budget name" oninput="updateNewBudgetTitle()" required>
+                  </div>
+                </div>
+                <div class="row w3-text-gray">
+                  <div class="col-25">
+                    <label for="description">Description<span style="color:red">*</span></label>
+                  </div>
+                  <div class="col-75 w3-text-gray">
+                    <input type="text" id="description" name="description" placeholder="Description" required>
+                  </div>
+                </div>
+
+                <div class="row w3-text-gray">
+                  <div class="col-25">
+                    <label for="est_date">Tentative Date<span style="color:red">*</span></label>
+                  </div>
+                  <div class="col-75">
+                    <input class="w3-text-gray"type="date" id="est_date" onload="setDate()">
+                  </div>
+                </div>
+                <br>
+                <center>
+                <div class="row" >
+
+                  <div class="w3-container" id="budget-table-headers" style="display:none;">
+                    <table class="w3-table-all w3-card-4" id="budgettableheaders">
+                      <tr>
+                        <th style="font-size: 15px;text-align:center;width:23%;"><i class="fa fa-tag"></i> Item</th>
+                        <th style="font-size: 15px;text-align:center;width:23%;"><i class="fa fa-usd"></i> Rate</th>
+                        <th style="font-size: 15px;text-align:center;width:23%;"><i class="fa fa-hashtag"></i> Quantity</th>
+                        <th style="font-size: 15px;text-align:center;width:23%;"><i class="fa fa-shopping-bag"></i> Total</th>
+                        <th style="text-align:center;width:8%;"></th>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="w3-container" id="budget-table" style="display:none;">
+                    <table class="w3-table-all w3-card-4" id="budgettable">
+                      <tr>
+                        <td style="width:23%;"><input style="padding: 5px;color:#424c53;border: 1px solid teal;" type="text" id="itemname" name="itemname" placeholder="Item name"></td>
+                        <td style="width:23%;"><input style="padding: 5px;color:#424c53;border: 1px solid teal;" type="text" id="itemrate" name="itemrate" placeholder="Estimated rate" oninput="checkPrice()"></td>
+                        <td style="width:23%;"><input style="padding: 5px;color:#424c53;border: 1px solid teal;" type="text" id="qty" name="qty" placeholder="Quantity" oninput="calculateItemTotal()"></td>
+                        <td style="width:23%;padding: 5px;text-align:center;color:#424c53;" id="itemtotal"></td>
+                        <td style="width:8%;text-align:center;color:#424c53;"><i class="fa fa-floppy-o w3-large onhover" onclick="saveRow()"></i> <i class="fa fa-trash w3-large onhover" onclick="deleteBudgetInputRow()"></i></td>
+                      </tr>
+
+                    </table>
+                  </div>
+                  <div class="w3-container" id="budget-table-details" style="display:none;">
+                    <table class="w3-table-all w3-card-4 w3-text-dark-gray" id="budgettabledetails">
+                    </table>
+                  </div>
+
+
+                  <div class="w3-container" id="budget-total" style="display:none;">
+                    <table class="w3-table-all" id="budgettotal">
+                      <tr>
+                        <td class="td-total" style="width:69%;"><i class="fa fa-money"></i> Total budget estimate:</td>
+                        <td class="td-total" style="width:23%;text-align:center;" id="budget-amount">0</td>
+                        <td style="width:8%;"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <br>
+                  <input class="w3-teal" type="submit" value="Add an item" onclick="updatebudgetTable()">
+                </div>
+
+
+
+              </center>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <!-- End Right Column -->
+
+    <!-- End Grid -->
+</div>
+<!-- End Page Container -->
+
+<!-- Dummy data for budget details -->
+<div id="overlay">
+  <div id="overlay-text-save-cancel">
+
+    <div class="w3-card-4 w3-text-dark-gray" style="width:100%;height:100%;padding-top:55px;padding-right:10px;padding-left:10px;background-color:#e5f9f4">
+      <center>
+        <span id="overlayMsg"></span><br><br>
+
+        <span id="cancelButtons" style="display:none;">
+          <button onclick="overlayOff('back')" style="width:auto; background-color:#f77d64;padding:15px;" class="w3-button w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+            Take me back!
+          </button>&nbsp &nbsp
+          <button onclick="overlayOff('cancel')" style="width:auto;padding:15px;" class="w3-button w3-teal w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+            Continue
+          </button>
+        </span>
+
+
+        <span id="okButton" style="display:none;">
+          <button onclick="overlayOff('save')" style="width:auto;padding:15px;" class="w3-button w3-teal w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+            Great <i class="fa fa-thumbs-o-up"></i>
+          </button>
+        </span>
+
+        <span id="saveButtons" style="display:none;">
+          <button onclick="overlayOff('edit')" style="width:auto;padding:15px;" class="w3-button w3-teal w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+            Okay
+          </button>
+          <!-- <button onclick="overlayOff('okay')" style="width:30%;" class="w3-button w3-deep-orange w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+            Okay
+          </button> -->
+        </span>
+      </center>
+  </div>
+
+  </div>
+</div>
+<!-- Footer -->
+
+<footer class="w3-container w3-teal w3-center w3-margin-top footer">
+  <p>Find us on social media.</br>
+  <i class="fa fa-facebook-official w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-instagram w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-snapchat w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-twitter w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-linkedin w3-hover-opacity onhover" onlick=""></i></p>
+</footer>
+
+<script src="impulse_shopping.js">
+</script>
+
+</body>
+</html>

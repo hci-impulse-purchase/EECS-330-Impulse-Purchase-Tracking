@@ -5,56 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/impluse_shopping.css"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <style>
-  html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+  html,body,h1,h2,h3,h4,h5,h6 {font-family: 'Cabin'}
 </style>
-<body class="w3-light-grey">
+
+<body class="w3-light-grey bgimg">
 
 <!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
+  <div class="w3-row-padding w3-content w3-margin-top" style="max-width:90%;height:90%;overflow:auto;">
 
     <!-- Left Column -->
     <div class="w3-quarter">
 
-      <div class="w3-white w3-card-4">
+      <div class="w3-white w3-card" style="min-height:780px;">
         <div class="w3-display-container">
-          <center><img src="images/QH.jpg" style="width:250px;padding-top:25px;" alt="QH"></center>
+          <center><img src="images/QH.jpg" style="padding-top:20px;max-width: 70%;" alt="QH"></center>
         </div>
         <div class="w3-container">
-          <hr>
-          <center><div class="w3-text-black"><h1>Quincia Hu</h1></div></center>
+          <center><div class="w3-text-gray"><h3>Quincia Hu</h3></div></center>
           <hr>
           <!-- Functional buttons -->
           <center>
-            <button onclick="" style="background-color: #61e7ff" class="w3-margin-top onhover">
-            <div style="width:250px"><div class="w3-text-white"><h4>Dashboard</h4></div></div>
-          </button>
-            <a href="budget_list.html"><button onclick="" style="background-color: #84c0ff" class="w3-margin-top">
-            <div style="width:250px"><div class="w3-text-white onhover"><h4>Budget History</h4></div></div>
-          </button></a>
-            <button onclick="" style="background-color: #bdb2ff" class="w3-margin-top onhover">
-            <div style="width:250px"><div class="w3-text-white"><h4>Purchase Tracker</h4></div></div>
-          </button>
-            <button onclick="" style="background-color: #8c8cff" class="w3-margin-top onhover">
-            <div style="width:250px"><div class="w3-text-white"><h4>Bingelist</h4></div></div>
-          </button>
-            <button onclick="" style="background-color: #7f76ff" class="w3-margin-top w3-margin-bottom onhover">
-            <div style="width:250px"><div class="w3-text-white"><h4>Rewards</h4></div></div>
-          </button>
+            <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>My Budgets</h4>
+            </button>
+            <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>Purchase Tracker</h4>
+            </button>
+            <button onclick="location.href = 'binge_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>Binge List</h4>
+            </button>
+            <button onclick="location.href = 'rewards.html'" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>Rewards</h4>
+            </button>
+
           <!-- Sign out -->
             <hr>
-            <div class="w3-padding-16 w3-margin-bottom">
-            <a href="login.html"><button onclick="" style="background-color: #d3d2c4">
-             <div style="width:150px"><div class="w3-text-black onhover"><h4>SIGN OUT</h4></div></div>
-           </button></a>
-            </div>
-            <hr>
+            <button onclick="location.href = 'login.html';" style="width:50%;"
+                    class="w3-grey w3-round-xxlarge w3-text-dark-gray w3-hover-blue-grey onhover">
+              <h4>SIGN OUT</h4>
+            </button>
+
           </center>
         </div>
       </div>
@@ -63,57 +63,69 @@
 
     <!-- Right Column -->
     <div class="w3-threequarter">
-      <!-- Dashboard-->
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h1 class="w3-text-light-black w3-padding-16">
-          <i class="w3-margin-right fa fa-suitcase fa-fw w3-xxlarge w3-text-teal"></i>Dashboard
-        </h1>
+      <div class="w3-container w3-card-4 w3-white w3-margin-bottom" style="height:780px;overflow: auto;">
+        <!-- Dashboard-->
+        <h1 class="w3-text-teal w3-padding-16 w3-margin-left">
+          <i class="w3-margin-right fa fa-dashboard fa-fw w3-text-teal"></i>Dashboard</h1>
+        <h3 class="w3-display-container w3-text-gray w3-margin-left">
+          <span id="displaying">Hey <span id="user-name2">Quincia</span>, welcome!</span>
+          <!-- <img src="images/star.jpg" align="left" hspace="30" style="width:7%;" alt="star"> -->
+        </h3>
+        <h3 class="w3-text-gray w3-margin-left">Plan your budget to avoid those guilt trips.</h3>
         <hr>
-        <div class="w3-display-container w3-margin-top w3-margin-bottom">
-          <center><img src="images/db_hey.jpg" style="width:600px;" alt="QH"></center>
-          <hr>
-        </div>
+
         <!-- Balance -->
-        <h2 class="w3-text-black w3-padding-16">
-          <i class="fa fa-certificate fa-fw w3-margin-right w3-margin-bottom w3-xxlarge w3-text-teal"></i>
-          Balance
+        <h2 class="w3-text-gray w3-margin-left">
+          <i class="fa fa-credit-card fa-fw w3-margin-right w3-text-gray"></i>
+          Budget
         </h2>
+
         <!-- Calendar -->
-        <div class="w3-container w3-padding-16">
-          <h4 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            Jan 2019 - <span class="w3-tag w3-teal w3-round w3-margin-bottom">Current</span>
+        <div class="w3-container">
+          <h4 class="w3-text-gray"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Budget Period
+            &nbsp &nbsp<b>from</b>&nbsp &nbsp<input style="width:22%" type="date" id="myDate" value="2019-01-01" class="w3-text-gray">
+            &nbsp &nbsp<b>to</b>&nbsp &nbsp<input style="width:22%" type="date" id="myDate" value="2019-03-01" class="w3-text-gray">
+          </h4>
+          <h4 class="w3-text-gray"><i class="fa fa-dollar fa-fw w3-margin-right w3-margin-top"></i>Budget Summary
+            <!-- budget bar -->
+            <div class="w3-light-gray w3-round-xlarge w3-large w3-margin-top">
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                <div style="height:30px">80%</div>
+              </div>
+            </div>
           </h4>
         </div>
-        <!-- Toggle bar -->
-        <div class="w3-padding-16">
-          <div class="w3-light-gray w3-round-xlarge w3-large">
-          <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-            <div style="height:30px">80%</div>
-          </div>
-        </div>
-        </div>
-        <div class="w3-display-container w3-padding-24 w3-margin-bottom">
-          <center><img src="images/db_pie.jpg" style="height:227px;" alt="QH"></center>
-        </div>
-        <hr>
+        <!-- Pie chart -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!--Table and divs that hold the pie charts-->
+        <table class="columns w3-margin-left" style="width:97%;padding-top:10px;">
+          <tr>
+            <td style="padding:5px;width:50%"><div id="budget_whole"  style="border: 1px solid #ccc;"></div></td>
+            <td style="padding:5px;width:50%"><div id="budget_binge" style="border: 1px solid #ccc;"></div></td>
+          </tr>
+        </table>
+
       </div>
     </div>
     <!-- End Right Column -->
   </div>
   <!-- End Grid -->
-</div>
+
 <!-- End Page Container -->
 
 <!-- Footer -->
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me in App store.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
+<footer class="w3-container w3-teal w3-center w3-margin-top footer">
+  <p>Find us on social media.</br>
+  <i class="fa fa-facebook-official w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-instagram w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-snapchat w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-twitter w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-linkedin w3-hover-opacity onhover" onlick=""></i></p>
 </footer>
+
+<script src="impulse_shopping.js">
+</script>
 
 </body>
 </html>

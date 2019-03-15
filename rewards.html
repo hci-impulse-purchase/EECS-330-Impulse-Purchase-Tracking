@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<title>Rewards</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/impluse_shopping.css"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Cabin"}
+</style>
+<body class="w3-light-grey bgimg">
+
+<header class="w3-container w3-bar w3-teal header">
+    <h1>
+      <span class="profile-pic alignleft">
+        <span><img src="images/QH2.jpg" style="min-width:15%;vertical-align:middle;" class="w3-circle aligncenter onhover"></span>
+      </span>
+
+        <span class = "header-text inline-text">
+        <span class="alignright">
+          <button onclick="location.href = 'dashboard.html';" class="w3-button w3-round-xxlarge btn-size w3-hover-text-dark-gray" style="background-color:#b05b4b;">
+            <i class="fa fa-chevron-circle-left"></i> Back to Dashboard</button>
+        </span>
+      </span>
+    </h1>
+</header>
+
+<!-- Page Container -->
+<div class="w3-row-padding aligncenter w3-margin-top" style="max-width:95%;">
+
+    <!-- Left Column -->
+    <div class="w3-quarter">
+
+        <div class="w3-white w3-card-4">
+            <div class="w3-display-container" style="height:700px;">
+                <!-- Functional buttons -->
+                <center>
+                    <br>
+                    <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; text-align: left; width:75%;padding-left:17%"
+                            class="w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>My Budgets</h4>
+                    </button>
+                    <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; text-align: left; width:75%;padding-left:17%"
+                            class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>Purchase Tracker</h4>
+                    </button>
+                    <button onclick="location.href = 'binge_list.html';" style="background-color: #e8a1a2; text-align: left; width:75%;padding-left:17%"
+                            class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                        <h4>Binge List</h4>
+                    </button>
+                    <button onclick="location.href = 'rewards.html'" style="background-color: #e8a1a2; text-align: left; width:75%;padding-left:17%"
+                            class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                            <h4>Rewards
+                                <i class="w3-margin-right fa fa-angle-double-right fa-fw"></i>
+                            </h4>
+                    </button>
+
+
+                </center>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Left Column -->
+
+    <!-- Right Column -->
+    <div class="w3-threequarter">
+        <!-- Dashboard-->
+        <div class="w3-container w3-card-4 w3-white w3-margin-bottom" style="height:700px;overflow: auto;">
+
+            <h1 class="w3-text-teal w3-padding-16 w3-margin">
+                <i class="w3-margin-right fa fa-trophy w3-xxlarge w3-text-teal"></i>Rewards
+            </h1>
+
+            <table class="w3-table w3-margin" style="width:95%;">
+
+                <tr>
+                    <td style="width:70%;padding-left:5%">
+                      <p><b style="font-size: 28px;color:#f77d64" class="w3-hover-text-orange">You have 130 points as of now!</b></p>
+                      <p><b style="font-size: 23px; color:gray;">Each point can be redeemed for $1.00</b></p>
+                      <p><b style="font-size: 23px; color:gray;">Use your points to purchase Venmo Points</b></p>
+                    </td>
+                    <td>
+                        <img src="images/rewards.png" style="max-width: 50%; height: auto;">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <b style="font-size: 28px;" class="w3-text-teal w3-margin">How to earn Points?</b>
+
+            <table class="w3-table w3-margin" style="width:95%;">
+                <tr>
+                    <td style="width:70%;padding-left:5%">
+                      <p><b style="display: block; font-size: 23px; color:gray;">
+                        <i class="w3-margin-right fa fa-hand-o-right"></i>Each point can be redeemed for $1.00</b></p>
+                    </td>
+                    <td>
+                      <button style="display: block; width: 160px ;padding: 6px; background-color: teal; color: #edffe5;font-size: 22px;"
+                              class="onhover" type="button" id="sub1" onclick="changeSub1()">Subscribe</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:70%;padding-left:5%">
+                      <p><b style="display: block; font-size: 23px; color:gray;">
+                          <i class="w3-margin-right fa fa-hand-o-right"></i>Get 20 points for joining our mailing list</b></p>
+                    </td>
+                    <td>
+                      <button style="display: block; width: 160px ;padding: 6px; background-color: teal; color: #edffe5;font-size: 22px;"
+                        class="onhover" type="button" id="sub2" onclick="changeSub2()">Subscribe</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:70%;padding-left:5%">
+                      <p><b style="display: block; font-size: 23px; color:gray;">
+                          <i class="w3-margin-right fa fa-hand-o-right"></i>Get 1 points for each $20.00 saved</b></p>
+                    </td>
+                    <td>
+                      <button style="display: block; width: 160px ;padding: 6px; background-color: teal; color: #edffe5;font-size: 22px;"
+                              class="onhover" type="button" id="sub3" onclick="changeSub3()">Subscribe</button>
+                    </td>
+                </tr>
+              </table>
+
+            </div>
+            <!-- Rewards -->
+
+       </div>
+    </div>
+    <!-- End Right Column -->
+
+    <!-- End Grid -->
+</div>
+<!-- End Page Container -->
+<div id="overlay" style="display: block;">
+<div id="overlay-text" style="width:40%;">
+    <center class="w3-text-gray" style="background-color: #e5f9f4; padding: 2px">
+      <h2><b>You have some impulse purchases not returned!</b></h2>
+      <h2><b>Return now?</b></h2>
+
+
+      <table class="w3-table-all w3-card-4" style="width:90%;">
+          <tr>
+              <th><i class="fa fa-tag"></i> Item</th>
+              <th><i class="fa fa-usd"></i> Price</th>
+          </tr>
+          <tr>
+              <td>Boots</td>
+              <td>1000</td>
+          </tr>
+          <tr>
+              <td>Handbag</td>
+              <td>300</td>
+          </tr>
+        </table>
+        <br>
+        <!-- <p><button onclick="location.href = 'binge_List.html';" style="width:20%;" class="w3-button w3-teal w3-round-xxlarge btn-size"> -->
+        <p><button onclick="alertOff()" style="width:20%;" class="w3-button w3-teal w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+            Okay</button>&nbsp &nbsp
+        <!--<button onclick="alertOff()" style="width:20%;background-color:#f77d64;" class="w3-button w3-text-white w3-round-xxlarge btn-size w3-hover-text-dark-gray">-->
+            <!--No</button>-->
+        </p>
+    </center>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-teal w3-center w3-margin-top footer">
+    <p>Find us on social media.</br>
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i></p>
+</footer>
+
+<script src="impulse_shopping.js"></script>
+
+</body>
+</html>

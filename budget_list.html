@@ -1,63 +1,203 @@
 <!DOCTYPE html>
 <html>
 <title>Budget List</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/impluse_shopping.css"/>
-<body class="bgimg">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <header class="w3-container w3-teal header">
-    <h1>
-      <span class="profile-pic alignleft">
-        <span><img src="images/QH2.jpg" class="w3-circle aligncenter onhover"></span>
-      </span>
+<style>
+  html,body,h1,h2,h3,h4,h5,h6 {font-family: "Cabin"}
+</style>
+<body class="w3-light-grey bgimg">
 
-      <span class = "header-text inline-text">My Budget Plans
-        <span class="alignright">
-          <a href="dashboard.html" button class="w3-button w3-deep-orange w3-round-xxlarge btn-size">Back to Dashboard</a>
+  <header class="w3-container w3-bar w3-teal header">
+      <h1>
+        <span class="profile-pic alignleft">
+          <span><img src="images/QH2.jpg" style="min-width:15%;vertical-align:middle;" class="w3-circle aligncenter onhover"></span>
         </span>
-      </span>
-    </h1>
+
+          <span class = "header-text inline-text">
+          <span class="alignright">
+            <button onclick="location.href = 'dashboard.html';" class="w3-button w3-round-xxlarge btn-size w3-hover-text-dark-gray" style="background-color:#b05b4b;">
+              <i class="fa fa-chevron-circle-left"></i> Back to Dashboard</button>
+          </span>
+        </span>
+      </h1>
   </header>
 
-  <div class="w3-sidebar w3-khaki w3-bar-block side-bar">
-    <a href="#" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-xlarge w3-padding-16 w3-center menu-option">Budget History</a>
-    <a href="#" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-xlarge w3-padding-16 w3-center menu-option">Purchase Tracker</a>
-    <a href="#" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-xlarge w3-padding-16 w3-center menu-option">Binglist</a>
-    <a href="#" class="w3-bar-item w3-button w3-border-bottom w3-hover-teal w3-xlarge w3-padding-16 w3-center menu-option">Rewards</a>
-  </div>
+<!-- Page Container -->
+<div class="w3-row-padding aligncenter w3-margin-top" style="max-width:95%;">
 
-  <div class="w3-container display">
-    <ul class="w3-ul w3-xlarge w3-padding-16">
-      <li>Florida Trip - Summer 2019
-        <div class="inline-text alignright onhover"><i class="fa fa-bars" onclick=""></i></div>
-      </li>
-      <li>Target - 8th Jan 2019
-        <div class="inline-text alignright onhover"><i class="fa fa-bars" onclick=""></i></div>
-      </li>
-      <li>Whole Foods - February
-        <div class="inline-text alignright onhover"><i class="fa fa-bars" onclick=""></i></div>
-      </li>
-      <li>Jill's birthday party
-        <div class="inline-text alignright onhover"><i class="fa fa-bars" onclick=""></i></div>
-      </li>
-    </ul>
-  </br></br>
-    <div class="">
-      <a href="" button class="w3-button w3-ripple w3-teal w3-round-xxlarge btn-size"><h3>Create a new budget</h3></a>
+
+
+    <!-- Left Column -->
+    <div class="w3-quarter">
+
+      <div class="w3-white w3-card-4">
+        <div class="w3-display-container" style="height:700px;">
+          <center>
+
+            <!-- Functional buttons -->
+            <br>
+            <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>My Budgets
+                <i class="w3-margin-right fa fa-angle-double-right fa-fw"></i>
+            </h4>
+            </button>
+            <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>Purchase Tracker</h4>
+            </button>
+            <button onclick="location.href = 'binge_List.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>Binge List</h4>
+            </button>
+            <button onclick="location.href = 'rewards.html'" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                    class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+              <h4>Rewards</h4>
+            </button>
+
+
+          </center>
+        </div>
+      </div>
     </div>
+    <!-- End Left Column -->
 
+    <!-- Right Column -->
+    <div class="w3-threequarter">
+      <!-- Dashboard-->
+      <div class="w3-container w3-card-4 w3-white w3-margin-bottom w3-text-gray" style="height:700px;overflow: auto;">
+        <h1 class="w3-text-teal w3-padding-16 w3-margin-left">
+          <i class="w3-margin-right fa fa-th-list fa-fw w3-xxlarge w3-text-teal"></i>
+          My Budget Plans
+        </h1>
+
+
+        <div class="w3-container">
+          <ul class="w3-ul w3-large w3-padding-36" id="budget-list">
+            <li id="li1"><span onclick="overlayOn()" class="onhover">Florida Trip - Summer 2019</span>
+
+              <div class="w3-dropdown-hover w3-right" style="background-color:white;">
+                <i class="fa fa-bars"></i>
+                <div class="w3-dropdown-content w3-bar-block w3-border w3-text-gray" style="right:0;">
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="overlayOn()"><i class="fa fa-eye"></i> View details</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="location.href = 'purchase_tracker.html';"><i class="fa fa-credit-card"></i> Track purchase</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="deleteListItem(li1)"><i class="fa fa-trash"></i> Delete budget</a>
+                </div>
+              </div>
+
+            </li>
+            <li id="li2"><span onclick="overlayOn()" class="onhover">Target - 8th Jan 2019</span>
+              <div class="w3-dropdown-hover w3-right" style="background-color:white;">
+                <i class="fa fa-bars"></i>
+                <div class="w3-dropdown-content w3-bar-block w3-border w3-text-gray" style="right:0;">
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="overlayOn()"><i class="fa fa-eye"></i> View details</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="location.href = 'purchase_tracker.html';"><i class="fa fa-credit-card"></i> Track purchase</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="deleteListItem(li2)"><i class="fa fa-trash"></i> Delete budget</a>
+                </div>
+              </div>
+            </li>
+            <li  id="li3"><span onclick="overlayOn()" class="onhover">Whole Foods - February</span>
+              <div class="w3-dropdown-hover w3-right" style="background-color:white;">
+                <i class="fa fa-bars"></i>
+                <div class="w3-dropdown-content w3-bar-block w3-border w3-text-gray" style="right:0;">
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="overlayOn()"><i class="fa fa-eye"></i> View details</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="location.href = 'purchase_tracker.html';"><i class="fa fa-credit-card"></i> Track purchase</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="deleteListItem(li3)"><i class="fa fa-trash"></i> Delete budget</a>
+                </div>
+              </div>
+            </li>
+            <li  id="li4"><span onclick="overlayOn()" class="onhover">Jill's birthday party</span>
+              <div class="w3-dropdown-hover w3-right" style="background-color:white;">
+                <i class="fa fa-bars"></i>
+                <div class="w3-dropdown-content w3-bar-block w3-border w3-text-gray" style="right:0">
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="overlayOn()"><i class="fa fa-eye"></i> View details</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="location.href = 'purchase_tracker.html';"><i class="fa fa-credit-card"></i> Track purchase</a>
+                  <a href="#" class="w3-bar-item w3-button w3-medium" onclick="deleteListItem(li4)"><i class="fa fa-trash"></i> Delete budget</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </br></br>
+          <div class="">
+            <a href="new_budget.html" button class="w3-button w3-ripple w3-teal w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+              <h3>Create a new budget</h3>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End Right Column -->
+
+  <!-- End Grid -->
+</div>
+
+
+<!-- Dummy data for budget details -->
+<div id="overlay">
+  <div id="overlay-text" style="background-color: #e5f9f4;" class="w3-card-4">
+    <center>
+    <table class="w3-table-all w3-card">
+      <tr>
+        <th><i class="fa fa-tag"></i> Item</th>
+        <th><i class="fa fa-usd"></i> Rate</th>
+        <th><i class="fa fa-hashtag"></i> Quantity</th>
+        <th><i class="fa fa-shopping-bag"></i> Total</th>
+      </tr>
+      <tr>
+        <td>Boots</td>
+        <td>200</td>
+        <td>1</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>Prada handbag</td>
+        <td>450</td>
+        <td>1</td>
+        <td>450</td>
+      </tr>
+      <tr>
+        <td>Sunglasses</td>
+        <td>150</td>
+        <td>3</td>
+        <td>450</td>
+      </tr>
+      <tr>
+        <td class="td-total"><i class="fa fa-money"></i> Total spend (in $)</td>
+        <td class="td-total"></td>
+        <td class="td-total"></td>
+        <td class="td-total">1100</td>
+      </tr>
+
+    </table>
+
+
+      <p><button onclick="overlayOff()" style="width:20%;" class="w3-button w3-teal w3-round-xxlarge btn-size w3-hover-text-dark-gray">
+        OK
+      </button></p>
+    </center>
   </div>
+</div>
 
-  <footer class="w3-container w3-teal w3-center w3-margin-top footer">
-    <p>Find us on social media.</br>
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i></p>
-  </footer>
+<!-- Footer -->
+
+<footer class="w3-container w3-teal w3-center w3-margin-top footer">
+  <p>Find us on social media.</br>
+  <i class="fa fa-facebook-official w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-instagram w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-snapchat w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-twitter w3-hover-opacity onhover" onlick=""></i>
+  <i class="fa fa-linkedin w3-hover-opacity onhover" onlick=""></i></p>
+</footer>
+
+<script src="impulse_shopping.js"></script>
+
 </body>
 </html>

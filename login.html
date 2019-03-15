@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-<title>Budget List</title>
+<title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cabin'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/impluse_shopping.css"/>
+
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Cabin"}
+</style>
 <body class="bgimg">
 
   <header class="w3-container w3-teal w3-center">
@@ -12,18 +17,27 @@
   </header>
 
   <div id="login" class="w3-container w3-center aligncenter">
-    <form class="w3-container w3-card-4" action="/action_page.php">
+    <form class="w3-container w3-card-4" autocomplete="off">
+      <center>
 
+      <p style="width:50%;">
+        <label class="w3-text-teal w3-left"><i class="fa fa-envelope-o w3-hover-opacity"></i><b> Username</b></label>
+        <input class="w3-input w3-border" placeholder="Username" id="username" type="text" value="" required>
+      </p>
+
+      <p style="width:50%;">
+        <label class="w3-text-teal w3-left"><i class="fa fa-key w3-hover-opacity"></i><b> Password</b></label>
+        <input class="w3-input w3-border" placeholder="Password" id="password" type="password" value="" required>
+      </p>
+
+      </center>
       <p>
-      <label class="w3-text-blue"><b>Username</b></label>
-      <input class="w3-input w3-border" name="first" type="text"></p>
-      <p>
-      <label class="w3-text-blue"><b>Password</b></label>
-      <input class="w3-input w3-border" name="last" type="password"></p>
-      <p>
-      <a href="dashboard.html" button class="w3-btn w3-blue">Login</a></p>
-      <p><button class="w3-btn w3-blue"><i class="fa fa-google w3-hover-opacity"></i> Login with Google</button>
-         <button class="w3-btn w3-blue"><i class="fa fa-facebook-official w3-hover-opacity"></i> Login with Facebook</button></p>
+        <a button class="w3-btn w3-round-xlarge w3-teal" style="width:25%;" onClick="processForm()">Login</a>
+      </p>
+
+      <p><button class="w3-btn w3-red"><i class="fa fa-google w3-hover-opacity"></i> Login with Google</button>
+         <button class="w3-btn w3-indigo"><i class="fa fa-facebook-official w3-hover-opacity"></i> Login with Facebook</button>
+      </p>
 
       <p>New here?
         <span><a href="">Create an account</a><span>
@@ -36,13 +50,15 @@
 
   <footer class="w3-container w3-teal w3-center w3-margin-top footer">
     <p>Find us on social media.</br>
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i></p>
+    <i class="fa fa-facebook-official w3-hover-opacity onhover" onlick=""></i>
+    <i class="fa fa-instagram w3-hover-opacity onhover" onlick=""></i>
+    <i class="fa fa-snapchat w3-hover-opacity onhover" onlick=""></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity onhover" onlick=""></i>
+    <i class="fa fa-twitter w3-hover-opacity onhover" onlick=""></i>
+    <i class="fa fa-linkedin w3-hover-opacity onhover" onlick=""></i></p>
   </footer>
+
+<script src="impulse_shopping.js"></script>
 
 </body>
 </html>
