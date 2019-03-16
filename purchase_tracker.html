@@ -11,12 +11,12 @@
 <style>
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Cabin"}
 </style>
-<body class="w3-light-grey">
+<body class="w3-light-grey bgimg">
 
   <header class="w3-container w3-bar w3-teal header">
       <h1>
         <span class="profile-pic alignleft">
-          <span><img src="images/QH2.jpg" style="min-width:15%;vertical-align:middle;" class="w3-circle aligncenter onhover"></span>
+          <span><img src="images/QH2.jpg" style="width:13%;vertical-align:middle;padding-top: 1%;" class="w3-circle aligncenter onhover"></span>
         </span>
 
           <span class = "header-text inline-text">
@@ -29,56 +29,47 @@
   </header>
 
 <!-- Page Container -->
-<div class="w3-row-padding aligncenter w3-margin-top" style="max-width:95%;">
+<!----------------------------------------------------------------------------------------------------------------------------------------->
+<table class="w3-table w3-margin" style="width:95%; height:80%">
 
-    <!-- Left Column -->
-    <div class="w3-quarter">
+    <tr>
+        <td style="width:25%;">
 
-        <div class="w3-white w3-card-4">
-            <div class="w3-display-container" style="height:700px;">
-                <!-- Functional buttons -->
-                <center>
-                    <br>
-                    <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
-                            class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-                        <h4>My Budgets</h4>
-                    </button>
-                    <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-                        <h4>Purchase Tracker
-                            <i class="w3-margin-right fa fa-angle-double-right fa-fw"></i>
-                        </h4>
-                    </button>
-                    <button onclick="location.href = 'binge_List.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-                        <h4>Binge List
-                        </h4>
-                    </button>
-                    <button onclick="location.href = 'rewards.html';" style="background-color: #e8a1a2; width:75%;text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-                        <h4>Rewards</h4>
-                    </button>
-
-
-                </center>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Left Column -->
-
-    <!-- Right Column -->
-    <div class="w3-threequarter">
-        <!-- Dashboard-->
-        <div class="w3-container w3-card-4 w3-white w3-margin-bottom" style="height:700px;overflow: auto;">
-
+              <div class="w3-container w3-white w3-margin-bottom container">
+                  <!-- Functional buttons -->
+                  <center>
+                      <br>
+                      <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                              class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                          <h4>My Budgets</h4>
+                      </button>
+                      <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                          <h4>Purchase Tracker
+                              <i class="w3-margin-right fa fa-angle-double-right fa-fw"></i>
+                          </h4>
+                      </button>
+                      <button onclick="location.href = 'binge_List.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                          <h4>Binge List
+                          </h4>
+                      </button>
+                      <button onclick="location.href = 'rewards.html';" style="background-color: #e8a1a2; width:75%;text-align:left;padding-left:17%" class="w3-margin w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                          <h4>Rewards</h4>
+                      </button>
+                  </center>
+              </div>
+        </td>
+        <td>
+          <div class="w3-container w3-white w3-margin-bottom container">
             <h1 class="w3-text-teal w3-padding-16 w3-margin-left">
                 <i class="w3-margin-right fa fa-list w3-xxlarge w3-text-teal"></i>Purchase Tracker
             </h1>
+          </div>
+        </td>
+    </tr>
+</table>
+<!----------------------------------------------------------------------------------------------------------------------------------------->
 
-       </div>
-    </div>
-    <!-- End Right Column -->
 
-    <!-- End Grid -->
-</div>
 <!-- End Page Container -->
 <div id="overlay" style="display: block;" onclick="location.href = 'dashboard.html';">
 <div id="overlay-text" style="width:40%;">
