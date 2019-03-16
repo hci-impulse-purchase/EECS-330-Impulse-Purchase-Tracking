@@ -149,9 +149,11 @@ function updatebudgetTable(){
     budgetHeadersTableOn();
     budgetTableOn();
 
+}else if(isInputRowEmpty()){
+  alert("Please enter details for an item!")
 }else{
-
-  }
+  alert("Please save the details for this item!")
+}
 }
 
 function saveRow(){

@@ -16,104 +16,103 @@
 <body class="w3-light-grey bgimg">
 
 <!-- Page Container -->
+<!----------------------------------------------------------------------------------------------------------------------------------------->
+<table class="w3-table w3-margin" style="width:95%; height:90%">
 
-  <div class="w3-row-padding w3-content w3-margin-top" style="max-width:90%;height:90%;overflow:auto;">
+    <tr>
+        <td style="width:25%;">
 
-    <!-- Left Column -->
-    <div class="w3-quarter">
+              <div class="w3-container w3-white w3-margin-bottom container">
+                <div class="w3-display-container">
+                  <center><img src="images/QH.jpg" style="padding-top:20px;max-width: 70%;" alt="QH"></center>
+                </div>
+                <div class="w3-container">
+                  <center><div class="w3-text-gray"><h3>Quincia Hu</h3></div></center>
+                  <hr>
+                  <!-- Functional buttons -->
+                  <center>
 
-      <div class="w3-white w3-card" style="min-height:780px;">
-        <div class="w3-display-container">
-          <center><img src="images/QH.jpg" style="padding-top:20px;max-width: 70%;" alt="QH"></center>
-        </div>
-        <div class="w3-container">
-          <center><div class="w3-text-gray"><h3>Quincia Hu</h3></div></center>
-          <hr>
-          <!-- Functional buttons -->
-          <center>
+                    <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                            class="w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                      <h4>My Budgets</h4>
+                    </button>
 
-            <button onclick="location.href = 'budget_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
-                    class="w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-              <h4>My Budgets</h4>
-            </button>
+                    <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                            class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                      <h4>Purchase Tracker</h4>
+                    </button>
 
-            <button onclick="location.href = 'purchase_tracker.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
-                    class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-              <h4>Purchase Tracker</h4>
-            </button>
+                    <button onclick="location.href = 'binge_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                            class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                      <h4>Binge List</h4>
+                    </button>
 
-            <button onclick="location.href = 'binge_list.html';" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
-                    class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-              <h4>Binge List</h4>
-            </button>
+                    <button onclick="location.href = 'rewards.html'" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
+                            class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
+                      <h4>Rewards</h4>
+                    </button>
 
-            <button onclick="location.href = 'rewards.html'" style="background-color: #e8a1a2; width:75%; text-align:left;padding-left:17%"
-                    class="w3-margin-top w3-text-white w3-hover-grey onhover w3-hover-text-dark-gray">
-              <h4>Rewards</h4>
-            </button>
+                  <!-- Sign out -->
+                    <hr>
+                    <button onclick="location.href = 'login.html';" style="width:50%;"
+                            class="w3-grey w3-round-xxlarge w3-text-dark-gray w3-hover-blue-grey onhover">
+                      <h4>SIGN OUT</h4>
+                    </button>
 
-          <!-- Sign out -->
-            <hr>
-            <button onclick="location.href = 'login.html';" style="width:50%;"
-                    class="w3-grey w3-round-xxlarge w3-text-dark-gray w3-hover-blue-grey onhover">
-              <h4>SIGN OUT</h4>
-            </button>
+                  </center>
+                </div>
 
-          </center>
-        </div>
-      </div>
-    </div>
-    <!-- End Left Column -->
-
-    <!-- Right Column -->
-    <div class="w3-threequarter">
-      <div class="w3-container w3-card-4 w3-white w3-margin-bottom" style="height:780px;overflow: auto;">
-        <!-- Dashboard-->
-        <h1 class="w3-text-teal w3-padding-16 w3-margin-left">
-          <i class="w3-margin-right fa fa-dashboard fa-fw w3-text-teal"></i>Dashboard</h1>
-        <h3 class="w3-display-container w3-text-gray w3-margin-left">
-          <span id="displaying">Hey <span id="user-name2">Quincia</span>, welcome!</span>
-          <!-- <img src="images/star.jpg" align="left" hspace="30" style="width:7%;" alt="star"> -->
-        </h3>
-        <h3 class="w3-text-gray w3-margin-left">Plan your budget to avoid those guilt trips.</h3>
-        <hr>
-
-        <!-- Balance -->
-        <h2 class="w3-text-gray w3-margin-left">
-          <i class="fa fa-credit-card fa-fw w3-margin-right w3-text-gray"></i>
-          Budget
-        </h2>
-
-        <!-- Calendar -->
-        <div class="w3-container">
-          <h4 class="w3-text-gray"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Budget Period
-            &nbsp &nbsp<b>from</b>&nbsp &nbsp<input style="width:22%" type="date" id="myDate" value="2019-01-01" class="w3-text-gray">
-            &nbsp &nbsp<b>to</b>&nbsp &nbsp<input style="width:22%" type="date" id="myDate" value="2019-03-01" class="w3-text-gray">
-          </h4>
-          <h4 class="w3-text-gray"><i class="fa fa-dollar fa-fw w3-margin-right w3-margin-top"></i>Budget Summary
-            <!-- budget bar -->
-            <div class="w3-light-gray w3-round-xlarge w3-large w3-margin-top">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
-                <div style="height:30px">80%</div>
               </div>
-            </div>
-          </h4>
-        </div>
-        <!-- Pie chart -->
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <!--Table and divs that hold the pie charts-->
-        <table class="columns w3-margin-left" style="width:97%;padding-top:10px;">
-          <tr>
-            <td style="padding:5px;width:50%"><div id="budget_whole"  style="border: 1px solid #ccc;"></div></td>
-            <td style="padding:5px;width:50%"><div id="budget_binge" style="border: 1px solid #ccc;"></div></td>
-          </tr>
-        </table>
+        </td>
+        <td>
+          <div class="w3-container w3-white w3-margin-bottom container">
 
-      </div>
-    </div>
-    <!-- End Right Column -->
-  </div>
-  <!-- End Grid -->
+            <!-- Dashboard-->
+            <h1 class="w3-text-teal w3-padding-16 w3-margin-left">
+              <i class="w3-margin-right fa fa-dashboard fa-fw w3-text-teal"></i>Dashboard</h1>
+            <h3 class="w3-display-container w3-text-gray w3-margin-left">
+              <span id="displaying">Hey <span id="user-name2">Quincia</span>, welcome!</span>
+              <!-- <img src="images/star.jpg" align="left" hspace="30" style="width:7%;" alt="star"> -->
+            </h3>
+            <h3 class="w3-text-gray w3-margin-left">Plan your budget to avoid those guilt trips.</h3>
+            <hr>
+
+            <!-- Balance -->
+            <h2 class="w3-text-gray w3-margin-left">
+              <i class="fa fa-credit-card fa-fw w3-margin-right w3-text-gray"></i>
+              Budget
+            </h2>
+
+            <!-- Calendar -->
+            <div class="w3-container">
+              <h4 class="w3-text-gray"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Budget Period
+                &nbsp &nbsp<b>from</b>&nbsp &nbsp<input style="width:22%" type="date" id="myDate" value="2019-01-01" class="w3-text-gray">
+                &nbsp &nbsp<b>to</b>&nbsp &nbsp<input style="width:22%" type="date" id="myDate" value="2019-03-01" class="w3-text-gray">
+              </h4>
+              <h4 class="w3-text-gray"><i class="fa fa-dollar fa-fw w3-margin-right w3-margin-top"></i>Budget Summary
+                <!-- budget bar -->
+                <div class="w3-light-gray w3-round-xlarge w3-large w3-margin-top">
+                  <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+                    <div style="height:30px">80%</div>
+                  </div>
+                </div>
+              </h4>
+            </div>
+            <!-- Pie chart -->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <!--Table and divs that hold the pie charts-->
+            <table class="columns w3-margin-left" style="width:97%;margin-top:2%;">
+              <tr>
+                <td style="padding:5px;width:50%"><div id="budget_whole"  style="border: 1px solid #ccc;"></div></td>
+                <td style="padding:5px;width:50%"><div id="budget_binge" style="border: 1px solid #ccc;"></div></td>
+              </tr>
+            </table>
+
+          </div>
+        </td>
+    </tr>
+</table>
+<!----------------------------------------------------------------------------------------------------------------------------------------->
 
 <!-- End Page Container -->
 
